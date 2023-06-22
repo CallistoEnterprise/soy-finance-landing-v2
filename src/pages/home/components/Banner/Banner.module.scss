@@ -1,0 +1,30 @@
+@use "src/styles/colors.module";
+
+.banner {
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+
+  .text {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 207px
+  }
+
+  video {
+    width: 100%;
+  }
+}
+
+.subheading {
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 42px;
+  margin-top: 15px;
+  text-align: center;
+}
+
+.green {
+  color: colors.$palette-green;
+}

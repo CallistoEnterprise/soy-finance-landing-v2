@@ -1,0 +1,39 @@
+@use "src/styles/colors.module";
+
+.empower {
+  border-radius: 20px;
+  border: 10px solid colors.$palette-green;
+  min-height: 800px;
+  background: #fff;
+
+  padding-left: 110px;
+  padding-right: 85px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+}
+
+.textBlock {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 30px;
+}
+
+.heading {
+  font-size: 42px;
+  font-weight: 600;
+  line-height: 62px;
+}
+
+.green {
+  color: colors.$palette-green;
+}
+
+.paragraph {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 32px;
+  color: #4B564B;
+}

@@ -1,0 +1,15 @@
+@use "src/styles/colors.module";
+
+.liquidity {
+  border-radius: 20px;
+  overflow: hidden;
+  background: colors.$background-primary;
+}
+
+.tabContent {
+  padding: 20px;
+}
+
+.addLiquidityTab {
+  padding-top: 16px;
+}

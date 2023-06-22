@@ -1,0 +1,128 @@
+@use "../../../styles/mixins";
+@use "../../../styles/colors.module";
+@use "src/styles/media";
+
+.topFooter {
+  padding: 20px 40px 40px;
+  display: flex;
+  justify-content: space-between;
+  background-color: #451913;
+
+  @include media.for-mobile {
+    padding: 0 0 20px;
+  }
+}
+
+.footer {
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.leftSide {
+  padding-top: 12px;
+
+  @include media.for-mobile {
+    padding: 0;
+  }
+}
+
+.footerLogo {
+  margin-bottom: 14px;
+}
+
+.footerSettings {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.soyPrice {
+  @include mixins.t-body-16;
+  display: flex;
+  align-items: center;
+  height: 40px;
+  padding: 0 10px;
+  border: 1px solid colors.$border-primary;
+  border-radius: 8px;
+  gap: 2px;
+}
+
+.socials {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.white {
+  color: white;
+}
+
+.externalLinkColumnTitle {
+  @include mixins.t-body-20;
+  font-weight: 700;
+  color: colors.$palette-white;
+  margin-bottom: 16px;
+}
+
+.externalLinks {
+  display: flex;
+  gap: 120px;
+  padding-top: 20px;
+
+  @include media.for-mobile {
+    display: none;
+  }
+}
+
+.linkList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.bottomFooter {
+
+  padding: 20px 40px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #300802;
+
+  @include media.for-mobile {
+    padding: 16px 0 0;
+    margin-bottom: 44px;
+    @include mixins.t-body-12;
+  }
+}
+
+
+.topFooter, .bottomFooter {
+  a {
+    color: colors.$palette-white;
+    transition-duration: 0.2s;
+    &:hover {
+      color: colors.$palette-green;
+    }
+  }
+}
+
+.copyright {
+  @include mixins.t-body-16;
+  color: colors.$palette-white;
+
+  @include media.for-mobile {
+    @include mixins.t-body-12;
+  }
+}
+
+.termsPolicy {
+  display: flex;
+  align-items: center;
+  gap: 21px;
+}
+
+.priceText {
+  color: colors.$palette-white;
+}

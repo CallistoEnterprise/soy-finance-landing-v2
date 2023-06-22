@@ -1,0 +1,79 @@
+.bridge {
+  border-radius: 20px;
+  overflow: hidden;
+  background-image: url("/images/homepage/bg-bridge.png");
+  padding-top: 100px;
+
+  img {
+    width: 100%;
+  }
+}
+
+.heading {
+  margin-bottom: 30px;
+  color: #FFF;
+  text-align: center;
+  font-size: 42px;
+  font-weight: 600;
+  line-height: 62px;
+}
+
+.subheading {
+  color: #FFF;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 32px;
+  letter-spacing: -0.4px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.centerImage {
+  display: flex;
+  justify-content: center;
+  margin-top: 119px;
+  img {
+    width: 528px;
+  }
+}
+
+.bottomContent {
+  background-image: url("/images/homepage/bridge-bottom.png");
+  background-position: -180px 0;
+
+  padding-bottom: 100px;
+  padding-top: 279px;
+}
+
+.bottomHeading {
+  color: var(--colours-main-light-primary, #FFF);
+  text-align: center;
+  /* H3/Desktop/Semibold */
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 42px;
+  letter-spacing: -0.64px;
+}
+
+.bottomParagraph {
+  color: var(--colours-main-light-primary, #FFF);
+  text-align: center;
+  /* 20/Regular */
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 32px;
+  letter-spacing: -0.4px;
+  max-width: 800px;
+  margin: 30px auto 0;
+}
+
+.bottomImg {
+  margin-top: 124px;
+  display: flex;
+  justify-content: center;
+
+  img {
+    width: 994px;
+  }
+}

@@ -1,0 +1,75 @@
+@use "../../../styles/media";
+@use "../../../styles/colors.module";
+
+.headerContent {
+  background: colors.$background-primary;
+  //backdrop-filter: blur(4px);
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  border: 1px solid colors.$border-primary;
+  border-radius: 100px;
+  margin-top: 20px;
+
+  @include media.for-mobile {
+    margin-top: 0;
+    margin-bottom: 0;
+    border-radius: 0;
+    background: transparent;
+    border: 0;
+  }
+}
+
+.headerMenu {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.burger {
+  display: none;
+
+  @include media.for-mobile {
+    display: block;
+  }
+}
+
+.headerSettings {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  @include media.for-mobile {
+    display: none;
+  }
+}
+
+.loading {
+  background: colors.$background-secondary;
+  border-radius: 8px;
+  height: 40px;
+  width: 171px;
+}
+
+.mobileWalletMenu {
+  display: none;
+
+  @include media.for-mobile {
+    display: flex;
+    gap: 10px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #fff;
+    border-top: 1px solid colors.$border-primary;
+    padding: 10px;
+    z-index: 999;
+
+    > div {
+      width: calc(50% - 5px);
+    }
+  }
+}
