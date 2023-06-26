@@ -96,7 +96,7 @@ export default function Stats() {
       <div className={styles.longStatBoxDataWrapper}>
         <p className={styles.trendingLabel}>Trending tokens</p>
         {sorted.length && sorted.slice(0, 4).map((tokenData: TokenData) => {
-          return <PriceBox imgUri={getLogo({address: tokenData.address})} price={tokenData.priceUSD} name={tokenData.symbol} change={tokenData.priceUSDChange} />
+          return <PriceBox key={tokenData.address} imgUri={getLogo({address: tokenData.address})} price={tokenData.priceUSD} name={tokenData.symbol} change={tokenData.priceUSDChange} />
         })}
         {/*<PriceBox imgUri="/images/homepage/FTM.svg" name="FTM" price="0.024" change="2.43" />*/}
         {/*<PriceBox imgUri="/images/homepage/ETH.svg" name="ETH" price="0.024" change="2.43" />*/}

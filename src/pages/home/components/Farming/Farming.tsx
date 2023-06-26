@@ -20,7 +20,7 @@ export default function Farming() {
       <p className={styles.subheading}>The Lush Life of High APRs</p>
       <div className={styles.cards}>
         {data.map(farm => {
-          return <div className={styles.card}>
+          return <div key={farm.name} className={styles.card}>
             <div className={styles.imageContainer}>
               <img src={getLogo({address: farm.token0})} />
               <Svg iconName="add-token" />

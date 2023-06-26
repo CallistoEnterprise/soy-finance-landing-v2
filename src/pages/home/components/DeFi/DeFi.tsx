@@ -13,7 +13,7 @@ export default function DeFi() {
         </h2>
         <p className={styles.paragraph}>
           By combining a list of audited tokens, decentralized insurance, and the most advanced token standards,
-          SOY Finance embraces the industry's best practices and technologies.
+          SOY Finance embraces the industry&apos;s best practices and technologies.
           This ensures our community of sloth enthusiasts a reliable and safe platform.
         </p>
       </div>
