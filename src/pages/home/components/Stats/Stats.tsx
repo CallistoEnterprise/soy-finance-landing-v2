@@ -1,7 +1,10 @@
-import React from "react";
+import React, {useMemo} from "react";
 import styles from "./Stats.module.scss";
 import {useMetrics} from "../../hooks/useMetrics";
 import Svg from "../../../../components/atoms/Svg";
+import {TokenData, useFetchTokens} from "../../../../shared/fetcher-home";
+import clsx from "clsx";
+import {getLogo} from "../../../../shared/getLogo";
 
 function shortenNumber(value: number) {
   if( value === undefined) return "0"
@@ -42,9 +45,9 @@ function PriceBox({imgUri, name, price, change}) {
     <div className={styles.tokenInfo}>
       <p className={styles.tokenName}>{name}</p>
       <div className={styles.tokenPrices}>
-        <span className={styles.tokenPrice}>${price}</span>
-        <span className={styles.tokenChange}>
-          {change}%
+        <span>${price.toLocaleString('en-US')}</span>
+        <span className={clsx(styles.tokenChange, change > 0 ? styles.green : styles.red)}>
+          {change.toLocaleString('en-US')}%
           <Svg size={20} iconName="arrow-right" />
         </span>
       </div>
@@ -54,6 +57,33 @@ function PriceBox({imgUri, name, price, change}) {
 
 export default function Stats() {
   const metricsData = useMetrics();
+
+  const a = useFetchTokens();
+
+  console.log(a);
+  const sorted = useMemo(() => {
+    if(!a.data) {
+      return [];
+    }
+
+    const values = Object.values(a.data);
+
+    console.log(values);
+
+    return values.sort((a: TokenData, b: TokenData): number => {
+      if(a.volumeUSD > b.volumeUSD) {
+        return -1;
+      }
+
+      if(a.volumeUSD < b.volumeUSD) {
+        return 1;
+      }
+
+      return 0;
+    });
+  }, [a]);
+
+  console.log(sorted);
 
   return <div className={styles.stats}>
     <div className={styles.statBoxContainer}>
@@ -65,10 +95,13 @@ export default function Stats() {
     <div className={styles.longStatBox}>
       <div className={styles.longStatBoxDataWrapper}>
         <p className={styles.trendingLabel}>Trending tokens</p>
-        <PriceBox imgUri="/images/homepage/FTM.svg" name="FTM" price="0.024" change="2.43" />
-        <PriceBox imgUri="/images/homepage/ETH.svg" name="ETH" price="0.024" change="2.43" />
-        <PriceBox imgUri="/images/homepage/CLO.svg" name="CLO" price="0.024" change="2.43" />
-        <PriceBox imgUri="/images/homepage/MATIC.svg" name="MATIC" price="0.024" change="2.43" />
+        {sorted.length && sorted.slice(0, 4).map((tokenData: TokenData) => {
+          return <PriceBox imgUri={getLogo({address: tokenData.address})} price={tokenData.priceUSD} name={tokenData.symbol} change={tokenData.priceUSDChange} />
+        })}
+        {/*<PriceBox imgUri="/images/homepage/FTM.svg" name="FTM" price="0.024" change="2.43" />*/}
+        {/*<PriceBox imgUri="/images/homepage/ETH.svg" name="ETH" price="0.024" change="2.43" />*/}
+        {/*<PriceBox imgUri="/images/homepage/CLO.svg" name="CLO" price="0.024" change="2.43" />*/}
+        {/*<PriceBox imgUri="/images/homepage/MATIC.svg" name="MATIC" price="0.024" change="2.43" />*/}
       </div>
     </div>
   </div>;

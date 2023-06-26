@@ -198,12 +198,24 @@
 }
 
 .tokenChange {
-  color: colors.$palette-green;
   display: flex;
   align-items: center;
-  svg {
-    transform: rotate(-90deg);
+
+  &.green {
+    color: colors.$palette-green;
+    svg {
+      transform: rotate(-90deg);
+    }
   }
+
+  &.red {
+    color: colors.$palette-red;
+    svg {
+      transform: rotate(90deg);
+    }
+  }
+
+
 }
 
 .trendingLabel {

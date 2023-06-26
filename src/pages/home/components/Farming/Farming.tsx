@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./Farming.module.scss";
 import Svg from "../../../../components/atoms/Svg";
 import { useFarmingAPR } from "../../hooks/useMetrics";
+import {getLogo} from "../../../../shared/getLogo";
 
 const getShortenNumber = (value: number): number => {
   return (Math.floor(value * 100)) / 100
@@ -9,6 +10,8 @@ const getShortenNumber = (value: number): number => {
 
 export default function Farming() {
   const data = useFarmingAPR();
+
+  console.log(data);
 
   return <div className={styles.farming}>
     <div className={styles.backdrop} />
@@ -19,9 +22,9 @@ export default function Farming() {
         {data.map(farm => {
           return <div className={styles.card}>
             <div className={styles.imageContainer}>
-              <img src={"/images/homepage/SOY.svg"} />
+              <img src={getLogo({address: farm.token0})} />
               <Svg iconName="add-token" />
-              <img src={"/images/homepage/ccLINA.svg"} />
+              <img src={getLogo({address: farm.token1})} />
             </div>
 
             <p className={styles.name}>{farm.name}</p>

@@ -17,7 +17,7 @@ export default function Staking() {
       <div className={styles.cards}>
         <div className={styles.card}>
           <div className={styles.imageContainer}>
-            <img src={"/images/homepage/SOY.svg"} alt=""/>
+            <img src={"/images/all-tokens/SOY.svg"} alt=""/>
           </div>
           <p className={styles.name}>SOY</p>
           <p className={styles.info}>APR: {getShortenNumber(stakingAPR)}%</p>
