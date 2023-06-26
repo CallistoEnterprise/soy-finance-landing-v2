@@ -1,33 +1,70 @@
 @use "src/styles/colors.module";
+@use "src/styles/media";
 @use "src/styles/mixins";
 
 .stats {
   border-radius: 20px;
   overflow: hidden;
-  //height: 398px;
+  height: 398px;
   background-image: url("/images/homepage/ground.png");
 
+  background-position: top center;
   padding-top: 48px;
-  padding-left: 21px;
-  padding-right: 21px;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  @include media.for-desktop {
+    height: 278px;
+  }
+
+  @include media.for-laptop {
+    height: auto;
+  }
+
+  @include media.for-large-mobile {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
 }
 
 .statBoxContainer {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 10px;
+
+  @include media.for-large-mobile {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .statBoxHeading {
   font-size: 20px;
   font-weight: 500;
   line-height: 32px;
+
+  @include media.for-desktop {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 18px;
+  }
+
+  @include media.for-large-mobile {
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 14px;
+  }
 }
 
 .statBoxValue {
   font-size: 28px;
   font-weight: 600;
   line-height: 36px;
+
+  @include media.for-desktop {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 32px;
+  }
 }
 
 .statBox {
@@ -43,6 +80,12 @@
   justify-content: center;
   align-items: center;
   gap: 12px;
+
+
+  @include media.for-desktop {
+    padding: 19px 4px;
+    gap: 4px;
+  }
 }
 
 .longStatBox {
@@ -53,37 +96,124 @@
   color: #fff;
   margin-top: 10px;
   margin-bottom: 20px;
+
+  @include media.for-desktop {
+    padding: 16px 0;
+  }
 }
 
 .priceBox {
   display: flex;
   gap: 16px;
+  align-items: center;
+  padding: 0 10px;
+
+  @include media.for-large-mobile {
+    padding: 0;
+  }
 }
 
-.longStatBox {
+.longStatBoxDataWrapper {
+  max-width: 1760px;
+  margin-left: auto;
+  margin-right: auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 50px 40px;
+  padding: 0 40px;
+  flex-wrap: wrap;
+  row-gap: 20px;
+
+  @include media.for-desktop {
+    padding: 0 20px;
+  }
+
+  @include media.for-large-mobile {
+    & {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      grid-template-rows: 1fr auto auto;
+      grid-gap: 10px;
+    }
+
+    & > :nth-child(1) {
+      grid-row: 1;
+    }
+
+    & > :nth-child(2),
+    & > :nth-child(3) {
+      grid-row: 2;
+    }
+
+    & > :nth-child(4),
+    & > :nth-child(5) {
+      grid-row: 3;
+    }
+  }
+
+  @media screen and (max-width: 525px) {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
 .tokenName {
+  font-size: 20px;
   font-weight: 700;
+  line-height: 32px;
+
+  @include media.for-desktop {
+    font-size: 16px;
+    line-height: 26px;
+  }
 }
 
 .tokenInfo {
   display: grid;
 }
 
+
+.tokenImg {
+  width: 60px;
+  height: 60px;
+
+  @include media.for-desktop {
+    width: 40px;
+    height: 40px;
+  }
+}
+
 .tokenPrices {
   display: flex;
   gap: 8px;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 32px;
+
+  @include media.for-desktop {
+    font-size: 16px;
+    line-height: 26px;
+  }
 }
 
 .tokenChange {
   color: colors.$palette-green;
+  display: flex;
+  align-items: center;
+  svg {
+    transform: rotate(-90deg);
+  }
 }
 
 .trendingLabel {
   @include mixins.t-body-20;
+
+  @include media.for-desktop {
+    @include mixins.t-body-14;
+  }
+
+  @include media.for-laptop {
+    width: 100%;
+  }
 }

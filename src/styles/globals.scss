@@ -115,9 +115,9 @@ svg, svg path {
 //}
 
 .container {
-  max-width: 1448px;
-  padding-left: 24px;
-  padding-right: 24px;
+  max-width: 2560px;
+  padding-left: 20px;
+  padding-right: 20px;
   margin: 0 auto;
   width: 100%;
 
@@ -127,8 +127,8 @@ svg, svg path {
   }
 
   @include media.for-mobile {
-    padding-left: 0;
-    padding-right: 0;
+    padding-left: 4px;
+    padding-right: 4px;
   }
 }
 

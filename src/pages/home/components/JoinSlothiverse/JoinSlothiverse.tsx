@@ -1,14 +1,12 @@
 import React from "react";
 import styles from "./JoinSlothiverse.module.scss";
-import Flex from "../../../../components/layout/Flex";
-import Text from "../../../../components/atoms/Text";
-import Button from "../../../../components/atoms/Button";
 import Svg from "../../../../components/atoms/Svg";
 
 export default function JoinSlothiverse() {
   return <div className={styles.join}>
       <div className={styles.image}>
-        <img src="/images/homepage/join.png" alt=""/>
+        <img className={styles.movable} src="/images/homepage/column.png" alt="" />
+        <img className={styles.bg} src="/images/homepage/join.png" alt=""/>
       </div>
       <div className={styles.textBlock}>
         <h2 className={styles.heading}>
@@ -16,11 +14,12 @@ export default function JoinSlothiverse() {
         </h2>
 
         <p className={styles.paragraph}>
-          SOY tokenomics are designed to nurture your wealth in the Slothiverse.
-          Soy Finance takes DeFi to the next level with cutting-edge token technology and a seamless experience
-          at 99% less cost than leading competitors.
-          Begin your Sloth journey and start trading, farming, and staking on a secure
-          platform built on the Callisto Network!
+          Soy Finance takes DeFi to the next level with the latest technologies and a seamless experience at 99% less cost than competitors.
+
+          <br/>
+          <br/>
+
+          Begin your Sloth journey and start trading, farming, and staking on the most secure DeFi platform!
         </p>
         <div className={styles.buttonBlock}>
           <button className={styles.button}>

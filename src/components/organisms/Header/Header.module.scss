@@ -14,11 +14,19 @@
   margin-top: 20px;
 
   @include media.for-mobile {
-    margin-top: 0;
-    margin-bottom: 0;
-    border-radius: 0;
-    background: transparent;
-    border: 0;
+    padding: 0 10px 0 20px;
+  }
+}
+
+.rightContent {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.launchButton {
+  @include media.for-mobile {
+    display: none;
   }
 }
 
@@ -31,7 +39,8 @@
 .burger {
   display: none;
 
-  @include media.for-mobile {
+  color: #4B564B;
+  @media screen and (max-width: 1150px) {
     display: block;
   }
 }

@@ -3,7 +3,6 @@ import Layout from "../../shared/layouts/Layout";
 import Banner from "./components/Banner";
 import Stats from "./components/Stats";
 import DeFi from "./components/DeFi";
-import Flex from "../../components/layout/Flex";
 import Staking from "./components/Staking";
 import Farming from "./components/Farming";
 import Burning from "./components/Burning";
@@ -20,12 +19,14 @@ export default function Home() {
           <Banner />
           <Stats />
           <DeFi />
-          <Flex gap={20}>
+          <BridgeBlock />
+
+          <div className={styles.stakingFarming}>
             <Staking />
             <Farming />
-          </Flex>
+          </div>
+
           <Burning />
-          <BridgeBlock />
           <EmpowerGrowth />
           <JoinSlothiverse />
         </div>

@@ -1,10 +1,21 @@
+@use "src/styles/media";
+
 .burning {
   border-radius: 20px;
   overflow: hidden;
   position: relative;
+  min-height: 350px;
+  background-image: url("/images/homepage/lava.png");
+  background-size: cover;
+  background-position: right calc(100% + 40px);
 
-  img {
-    width: 100%;
+  @media screen and (max-width: 1920px){
+    background-position: right bottom;
+  }
+
+  @include media.for-mobile {
+    max-height: 352px;
+    background-position: 87% bottom;
   }
 }
 
@@ -21,6 +32,11 @@
   font-weight: 500;
   line-height: 32px;
   color: #fff;
+
+  @include media.for-tablet() {
+    font-size: 16px;
+    line-height: 26px;
+  }
 }
 
 .subheading {
@@ -28,4 +44,9 @@
   font-weight: 600;
   line-height: 32px;
   color: #fff;
+
+  @include media.for-tablet() {
+    font-size: 22px;
+    line-height: 26px;
+  }
 }

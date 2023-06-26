@@ -1,18 +1,30 @@
 @use "src/styles/colors.module";
+@use "src/styles/media";
 
 .join {
   border-radius: 20px;
-  border: 10px solid colors.$palette-green;
-  min-height: 792px;
-
-
-  padding-left: 110px;
-  padding-right: 85px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
+  grid-template-areas: ". img img img img img . text text text text .";
+  grid-template-columns: repeat(12, 1fr);
   background-color: colors.$palette-green;
+  padding: 100px 0;
 
+  @include media.for-laptop {
+    gap: 20px;
+    grid-template-areas:
+            ". text text text text text text ."
+            ". img img img img img img .";
+    grid-template-columns: repeat(8, 1fr);
+  }
+
+  @include media.for-small-mobile {
+    padding: 60px 16px;
+    gap: 20px;
+    grid-template-areas:
+            "text"
+            "img";
+    grid-template-columns: 1fr;
+  }
 }
 
 
@@ -21,9 +33,24 @@
 }
 
 .image {
+  grid-area: img;
   display: flex;
   align-items: center;
-  height: 100%;
+  width: 100%;
+  position: relative;
+
+  .bg {
+    width: 100%;
+  }
+
+  @include media.for-laptop {
+    margin-top: 34px;
+  }
+}
+
+.movable {
+  position: absolute;
+  width: 100%;
 }
 
 .textBlock {
@@ -32,13 +59,31 @@
   flex-direction: column;
   justify-content: center;
   gap: 30px;
+  grid-area: text;
 }
 
 .heading {
-  font-size: 42px;
-  font-weight: 600;
-  line-height: 62px;
   color: #fff;
+
+  font-size: 58px;
+  font-weight: 600;
+  line-height: 80px;
+  letter-spacing: -1.16px;
+
+  @include media.for-large-desktop {
+    font-size: 42px;
+    line-height: 62px;
+  }
+
+  @include media.for-desktop {
+    font-size: 34px;
+    line-height: 52px;
+  }
+
+  @include media.for-tablet {
+    font-size: 28px;
+    line-height: 44px;
+  }
 }
 
 .green {
@@ -46,10 +91,21 @@
 }
 
 .paragraph {
-  font-size: 20px;
-  font-weight: 500;
-  line-height: 32px;
   color: #fff;
+
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 44px;
+
+  @include media.for-large-desktop {
+    font-size: 20px;
+    line-height: 32px;
+  }
+
+  @include media.for-tablet {
+    font-size: 16px;
+    line-height: 26px;
+  }
 }
 
 .buttonBlock {

@@ -1,11 +1,19 @@
-.farming {
-  background: url("/images/homepage/farming-1.png");
+@use "src/styles/media";
 
+.farming {
+  background-image: url("/images/homepage/staking.png");
+
+  background-size: cover;
+  background-position: center;
   border-radius: 20px;
   overflow: hidden;
   width: 100%;
   padding: 38px;
   position: relative;
+
+  @include media.for-desktop {
+    padding: 20px;
+  }
 }
 
 .backdrop {
@@ -16,7 +24,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(153deg, rgba(18, 5, 63, 0.60) 0%, rgba(18, 5, 63, 0.00) 100%);
+  background: linear-gradient(153deg, rgba(18, 5, 63, 0.4) 0%, rgba(18, 5, 63, 0) 70%, rgba(18, 5, 63, 0) 100%);
 }
 
 .heading {
@@ -25,6 +33,15 @@
   font-weight: 500;
   line-height: 32px;
   color: #fff;
+
+  @include media.for-desktop {
+    font-size: 16px;
+    line-height: 26px;
+  }
+
+  @include media.for-large-mobile {
+    margin-bottom: 4px;
+  }
 }
 
 .content {
@@ -38,6 +55,17 @@
   font-weight: 600;
   line-height: 32px;
   color: #fff;
+
+  @include media.for-desktop {
+    font-size: 26px;
+    line-height: 28px;
+    margin-bottom: 24px;
+  }
+
+  @include media.for-laptop {
+    font-size: 22px;
+    line-height: 26px;
+  }
 }
 
 .card {
@@ -46,11 +74,29 @@
   background: #fff;
   display: grid;
 
+  @include media.for-desktop {
+    grid-template-columns: 108px 1fr;
+    gap: 0 8px;
+    padding: 6px 16px;
+
+
+    .imageContainer {
+      grid-row: span 2;
+    }
+  }
+
+
   img {
     text-align: center;
     width: 50px;
     height: 50px;
     margin-bottom: 8px;
+
+    @include media.for-desktop {
+      width: 40px;
+      height: 40px;
+      margin: 0;
+    }
   }
 
   .name {
@@ -58,6 +104,13 @@
     font-size: 20px;
     font-weight: 700;
     line-height: 32px;
+
+     @include media.for-desktop {
+       grid-column: 2;
+       text-align: left;
+      font-size: 16px;
+      line-height: 26px;
+    }
   }
 
   .info {
@@ -65,13 +118,27 @@
     font-size: 16px;
     font-weight: 500;
     line-height: 26px;
+
+     @include media.for-desktop {
+       grid-column: 2;
+       text-align: left;
+    }
   }
 }
 
 .cards {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 20px;
+
+  @include media.for-large-desktop {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include media.for-desktop {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
 }
 
 .imageContainer {
@@ -79,4 +146,8 @@
   align-items: center;
   justify-content: center;
   gap: 10px;
+
+  @include media.for-desktop {
+    gap: 4px;
+  }
 }

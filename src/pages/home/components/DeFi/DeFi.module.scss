@@ -1,50 +1,172 @@
 @use "src/styles/colors.module";
+@use "src/styles/media";
 
 .defi {
-  border-radius: 20px;
-  border: 10px solid colors.$palette-green;
+  //border-radius: 0 8;
   min-height: 873px;
   position: relative;
-  padding-top: 444px;
+  overflow: hidden;
+
+  padding-top: 430px;
+  padding-bottom: 100px;
+  border-top-right-radius: 330px 80px;
+
+  margin-top: -59px;
+
+  @include media.for-large-desktop {
+    min-height: 842px;
+    padding-top: 417px;
+  }
+
+  @include media.for-desktop {
+    min-height: 714px;
+    padding-top: 298px;
+  }
+
+  @include media.for-desktop {
+    min-height: 514px;
+    padding-top: 248px;
+  }
+
+  @include media.for-mobile {
+    padding-top: 234px;
+    padding-bottom: 26px;
+    margin-top: -75px;
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    width: calc(100% - 20px);
+    height: calc(100% - 79px);
+    margin-top: 59px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 10px solid colors.$palette-green;
+    border-radius: 20px;
+    z-index: 1;
+  }
+
+  @media screen and (max-width: 1650px) {
+    border-top-right-radius: 262px 71px;
+    margin-top: -57px;
+
+    &:after {
+      margin-top: 51px;
+      height: calc(100% - 77px);
+    }
+  }
 }
 
 .mainImage {
   position: absolute;
-  top: -70px;
+  top: -31px;
   left: -10px;
+  right: 0;
+  z-index: 2;
+  height: 474px;
+  width: auto;
+
+  clip: rect(20px, auto, auto, 10px);
+
+  @media screen and (max-width: 1650px){
+    height: 413px;
+    top: -21px;
+  }
+
+  @include media.for-desktop {
+    height: 292px;
+    top: 2px;
+  }
+
+  @include media.for-tablet {
+    height: 235px;
+    top: 13px;
+  }
 }
 
 .content {
-  display: flex;
-  justify-content: center;
-  gap: 60px;
-  padding-left: 118px;
-  padding-right: 118px;
+  display: grid;
+  grid-template-areas: ". text text text text . img img img img img .";
+  grid-template-columns: repeat(12, 1fr);
+  gap: 10px;
 
-  > div {
-    width: 100%;
+  @include media.for-tablet {
+    grid-template-areas: ". text text text text text text ." ". img img img img img img .";
+    grid-template-columns: repeat(8, 1fr);
+    gap: 60px;
   }
+
+  @include media.for-mobile {
+    padding: 0 26px;
+    grid-template-areas: "text" "img";
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+}
+
+.text {
+  grid-area: text;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.frame {
+    aspect-ratio: 16 / 9;
+    width: 100%;
+}
+
+.video {
+  grid-area: img;
 }
 
 .video {
   border-radius: 10px;
   overflow: hidden;
+  display: flex;
+  align-items: center;
 }
 
 .paragraph {
-  font-size: 20px;
+  font-size: 24px;
   font-weight: 500;
-  line-height: 32px;
+  line-height: 44px;
+  letter-spacing: -0.48px;
   color: colors.$text-secondary;
+
+  @media screen and (max-width: 2250px){
+    font-size: 20px;
+    line-height: 32px;
+  }
+
+  @include media.for-desktop {
+    font-size: 16px;
+    line-height: 26px;
+  }
+
 }
 
 .heading {
-  font-size: 42px;
+  font-size: 68px;
   font-weight: 600;
-  line-height: 62px;
+  line-height: 94px;
   margin-bottom: 30px;
+
+  @media screen and (max-width: 2250px){
+    font-size: 48px;
+    line-height: 68px;
+  }
+
+  @media screen and (max-width: 1650px){
+    font-size: 34px;
+    line-height: 52px;
+  }
 }
 
 .green {
   color: colors.$palette-green;
 }
+
+

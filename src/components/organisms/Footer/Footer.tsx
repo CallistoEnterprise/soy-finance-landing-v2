@@ -82,7 +82,7 @@ export default function Footer() {
               })}
             </div>
           </div>
-          <div>
+          <div className={styles.engage}>
             <h3 className={styles.externalLinkColumnTitle}>Engage</h3>
             <div className={styles.linkList}>
               {["SlothTV", "Developer grants", "Governance", "Github", "Team"].map((linkLabel) => {

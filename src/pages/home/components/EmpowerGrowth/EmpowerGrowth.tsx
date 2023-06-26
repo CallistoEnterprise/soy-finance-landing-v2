@@ -9,12 +9,13 @@ export default function EmpowerGrowth() {
         {" "}
         Token — Empower your Growth in the Slothiverse
       </h2>
-
-      <p className={styles.paragraph}>SOY tokenomics are designed to nurture your wealth in the Slothiverse.
-        Built on an innovative monetary policy, SOY features a &apos;Buyback & Burn&apos; mechanism and rewards holders with up to 20% of the platform&apos;s transaction fees.
+      <p className={styles.paragraph}>SOY tokenomics is designed to grow your wealth.
+        Built on an innovative monetary policy, SOY features a &apos;Buyback & Burn&apos; mechanism
+        and rewards holders with up to 20% of the platform&apos;s transaction fees.
         <br/>
         <br/>
-        Join the Sloth family and have a say in SOY Finance&apos;s governance, shaping the platform&apos;s future together!</p>
+        Join the Sloth family and have a say in SOY Finance&apos;s governance, shaping the platform&apos;s future together!
+      </p>
     </div>
     <div className={styles.image}>
       <img src="/images/homepage/empower.png" alt=""/>

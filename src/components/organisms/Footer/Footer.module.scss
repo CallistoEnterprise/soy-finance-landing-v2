@@ -9,7 +9,7 @@
   background-color: #451913;
 
   @include media.for-mobile {
-    padding: 0 0 20px;
+    padding: 16px;
   }
 }
 
@@ -17,6 +17,11 @@
   border-radius: 20px;
   overflow: hidden;
   margin-bottom: 20px;
+
+  @include media.for-mobile {
+    border-radius: 12px;
+    margin-bottom: 4px;
+  }
 }
 
 .leftSide {
@@ -71,7 +76,17 @@
   gap: 120px;
   padding-top: 20px;
 
-  @include media.for-mobile {
+  @include media.for-desktop {
+    gap: 70px;
+  }
+
+  @media screen and (max-width: 980px) {
+    display: none;
+  }
+}
+
+.engage {
+  @include media.for-laptop {
     display: none;
   }
 }
@@ -91,8 +106,9 @@
   background-color: #300802;
 
   @include media.for-mobile {
-    padding: 16px 0 0;
-    margin-bottom: 44px;
+    padding: 16px;
+
+    //margin-bottom: 44px;
     @include mixins.t-body-12;
   }
 }
@@ -121,6 +137,10 @@
   display: flex;
   align-items: center;
   gap: 21px;
+
+  @include media.for-mobile {
+    gap: 12px;
+  }
 }
 
 .priceText {
