@@ -1,7 +1,6 @@
 import React from "react";
 import styles from "./Footer.module.scss";
 import Image from "next/image";
-import SwitchLanguage from "../../molecules/SwitchLanguage";
 import Svg from "../../atoms/Svg/Svg";
 import IconButton from "../../atoms/IconButton";
 import {useSoyPrice} from "../../../shared/hooks/useSoyPrice";
@@ -30,11 +29,10 @@ export default function Footer() {
               <img src="/images/all-tokens/SOY-TRANSPARENT.svg" />
               <span className={styles.priceText} >1 SOY = ${formatBalanceToSix(price)}</span>
             </div>
-            {/*<SwitchLanguage/>*/}
           </div>
           <div className={styles.socials}>
             {socialLinks.map((item, index) => {
-              return <a target="_blank" href={item.link}>
+              return <a key={index} target="_blank" href={item.link}>
                 <IconButton variant="social-footer" key={index}>
                   <Svg sprite="social" iconName={item.icon} />
                 </IconButton>
@@ -44,7 +42,7 @@ export default function Footer() {
         </div>
         <div className={styles.externalLinks}>
           {footerLinks.map((group) => {
-            return <div>
+            return <div key={group.groupLabel}>
               <h3 className={styles.externalLinkColumnTitle}>{group.groupLabel}</h3>
               <div className={styles.linkList}>
                 {group.links.map((link) => {

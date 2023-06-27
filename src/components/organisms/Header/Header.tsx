@@ -102,7 +102,7 @@ export default function Header() {
                 <h3 className={styles.blockTitle}>Social media</h3>
                 <div className={styles.socials}>
                   {socialLinks.map((item, index) => {
-                    return <a target="_blank" href={item.link}>
+                    return <a key={item.icon} target="_blank" href={item.link}>
                       <IconButton variant="social" key={index}>
                         <Svg sprite="social" iconName={item.icon} />
                       </IconButton>
