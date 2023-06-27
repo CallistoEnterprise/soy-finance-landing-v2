@@ -52,7 +52,6 @@
 
 .error {
   border: 1px solid colors.$palette-red;
-  box-shadow: 0 4px 0 colors.$palette-red;
 
   .iconWrapper {
     background: colors.$palette-red;
@@ -61,7 +60,6 @@
 
 .success {
   border: 1px solid colors.$palette-green;
-  box-shadow: 0 4px 0 colors.$palette-green;
 
   .iconWrapper {
     background: colors.$palette-green;
@@ -70,7 +68,6 @@
 
 .info {
   border: 1px solid colors.$palette-blue;
-  box-shadow: 0 4px 0 colors.$palette-blue;
 
   .iconWrapper {
     background: colors.$palette-blue;
@@ -79,7 +76,6 @@
 
 .warning {
   border: 1px solid colors.$palette-orange;
-  box-shadow: 0 4px 0 colors.$palette-orange;
 
   .iconWrapper {
     background: colors.$palette-orange;

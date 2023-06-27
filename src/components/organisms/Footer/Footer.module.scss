@@ -8,6 +8,11 @@
   justify-content: space-between;
   background-color: #451913;
 
+  @include media.for-desktop {
+    display: grid;
+    gap: 24px;
+  }
+
   @include media.for-mobile {
     padding: 16px;
   }
@@ -77,17 +82,12 @@
   padding-top: 20px;
 
   @include media.for-desktop {
-    gap: 70px;
+    gap: 60px;
   }
 
-  @media screen and (max-width: 980px) {
-    display: none;
-  }
-}
-
-.engage {
-  @include media.for-laptop {
-    display: none;
+  @media screen and (max-width: 685px){
+    display: grid;
+    gap: 24px;
   }
 }
 

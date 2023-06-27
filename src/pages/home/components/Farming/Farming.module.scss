@@ -86,16 +86,15 @@
   }
 
 
-  img {
+  img,
+  .imagePlaceholderWrapper {
     text-align: center;
     width: 50px;
     height: 50px;
-    margin-bottom: 8px;
 
     @include media.for-desktop {
       width: 40px;
       height: 40px;
-      margin: 0;
     }
   }
 
@@ -126,6 +125,29 @@
   }
 }
 
+.placeholderFarmTitle {
+  display: flex;
+  align-items: center;
+  height: 32px;
+  justify-content: center;
+
+  @include media.for-desktop {
+    height: 26px;
+    justify-content: flex-start;
+  }
+}
+
+.placeholderFarmInfo {
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @include media.for-desktop {
+    justify-content: flex-start;
+  }
+}
+
 .cards {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -146,8 +168,10 @@
   align-items: center;
   justify-content: center;
   gap: 10px;
+  margin-bottom: 8px;
 
   @include media.for-desktop {
     gap: 4px;
+    margin-bottom: 0;
   }
 }

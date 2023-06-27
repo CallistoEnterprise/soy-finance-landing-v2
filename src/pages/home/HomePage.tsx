@@ -10,7 +10,6 @@ import BridgeBlock from "./components/BridgeBlock";
 import EmpowerGrowth from "./components/EmpowerGrowth";
 import JoinSlothiverse from "./components/JoinSlothiverse";
 
-
 export default function Home() {
   return <Layout>
     <main>

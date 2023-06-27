@@ -18,7 +18,14 @@ export default function EmpowerGrowth() {
       </p>
     </div>
     <div className={styles.image}>
-      <img src="/images/homepage/empower.png" alt=""/>
+      <img className={styles.base} src="/images/homepage/empower.png" alt=""/>
+      <img className={styles.soy} src="/images/homepage/soy-logo.png" />
+
+      <div className={styles.sleep}>
+        <img className={styles.sleep1} src="/images/homepage/z.png" />
+        <img className={styles.sleep2} src="/images/homepage/z.png" />
+        <img className={styles.sleep3} src="/images/homepage/z.png" />
+      </div>
     </div>
   </div>;
 }

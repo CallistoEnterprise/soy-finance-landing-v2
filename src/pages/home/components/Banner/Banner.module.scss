@@ -30,6 +30,10 @@
       top: 120px;
     }
 
+    @include media.for-large-mobile {
+      gap: 5px;
+    }
+
     @include media.for-mobile {
       grid-template-areas: "text";
       grid-template-columns: 1fr;
@@ -174,7 +178,7 @@
 
   box-shadow: 0 4px 0 0 #588D00;
 
-  @include media.for-laptop {
+  @include media.for-mobile {
     display: flex;
   }
 

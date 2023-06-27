@@ -124,6 +124,8 @@
   flex-wrap: wrap;
   row-gap: 20px;
 
+
+
   @include media.for-desktop {
     padding: 0 20px;
   }
@@ -214,8 +216,6 @@
       transform: rotate(90deg);
     }
   }
-
-
 }
 
 .trendingLabel {

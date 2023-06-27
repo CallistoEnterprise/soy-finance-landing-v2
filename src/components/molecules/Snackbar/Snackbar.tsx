@@ -35,6 +35,7 @@ export default function Snackbar({ severity, message, handleClose }: Props) {
       <div className={styles.buttonWrapper}>
         <IconButton
           onClick={handleClose}
+          variant="system"
         >
           <Svg iconName="close" />
         </IconButton>

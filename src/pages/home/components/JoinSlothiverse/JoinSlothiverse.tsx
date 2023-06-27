@@ -1,12 +1,15 @@
 import React from "react";
 import styles from "./JoinSlothiverse.module.scss";
 import Svg from "../../../../components/atoms/Svg";
+import {Fade} from "react-awesome-reveal";
 
 export default function JoinSlothiverse() {
   return <div className={styles.join}>
       <div className={styles.image}>
-        <img className={styles.movable} src="/images/homepage/column.png" alt="" />
         <img className={styles.bg} src="/images/homepage/join.png" alt=""/>
+        <Fade direction="right" style={{width: "30%", height: "84%", top: 0, position: "absolute", left: 10}}>
+          <img className={styles.movable} src="/images/homepage/column.png" alt="" />
+        </Fade>
       </div>
       <div className={styles.textBlock}>
         <h2 className={styles.heading}>

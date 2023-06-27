@@ -203,20 +203,23 @@
 
 .mobileArmLt {
   position: absolute;
-  left: -213px;
+  left: 0;
   top: 60px;
+  width: 223px;
 }
 
 .mobileArmR {
   position: absolute;
   right: 0;
   top: 284px;
+  width: 226px;
 }
 
 .mobileArmRb {
   position: absolute;
   right: 0;
   top: 697px;
+  width: 223px;
 
   .arm {
     height: 98px;
@@ -256,6 +259,7 @@
    position: absolute;
    left: 0;
    top: 470px;
+  width: 239px;
 }
 
 .bottomText {
@@ -407,16 +411,45 @@
   }
 }
 
+@keyframes glimmer {
+  0% {
+    color: #8E80A7;
+  }
+
+  100% {
+    color: #fff;
+  }
+}
+
+@keyframes scaleStars {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0.99);
+  }
+}
+
+.starItem {
+  transform-origin: bottom;
+  animation: 1s ease-in-out 0s infinite alternate none running scaleStars;
+}
+
 .stars1 {
   position: absolute;
   left: 1492px;
-  top: 528px
+  top: 528px;
+
+  animation: 1s ease-in-out 0s infinite alternate none running glimmer;
 }
 
 .stars2 {
   position: absolute;
   left: 39px;
   top: 939px;
+
+  animation: 1s ease-in-out 0s infinite alternate none running glimmer;
 
   @include media.for-tablet {
     display: none;
@@ -460,10 +493,27 @@
 }
 
 .rocket2 {
+  animation: 1s ease-in-out 0s infinite alternate none running y-axis-animation;
   @include media.for-mobile {
     width: 181px;
   }
 }
+
+@keyframes y-axis-animation {
+  0% {
+    transform: translateY(10px);
+  }
+
+  100% {
+    transform: translateY(-10px);
+  }
+}
+
+//@keyframes glimmer {
+//  0% {
+//    color:
+//  }
+//}
 
 .ethText,
 .etcText,

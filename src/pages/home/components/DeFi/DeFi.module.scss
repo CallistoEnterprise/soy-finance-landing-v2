@@ -1,6 +1,32 @@
 @use "src/styles/colors.module";
 @use "src/styles/media";
 
+.sloth {
+  position: absolute;
+  width: 218px;
+  top: 180px;
+  left: 453px;
+  z-index: 3;
+
+  @media screen and (max-width: 1650px){
+    top: 164px;
+    left: 394px;
+    width: 188px;
+  }
+
+  @include media.for-desktop {
+    top: 131px;
+    left: 275px;
+    width: 136px;
+  }
+
+  @include media.for-tablet {
+    top: 117px;
+    left: 219px;
+    width: 109px;
+  }
+}
+
 .defi {
   //border-radius: 0 8;
   min-height: 873px;

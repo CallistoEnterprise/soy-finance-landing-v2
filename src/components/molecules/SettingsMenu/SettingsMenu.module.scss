@@ -1,10 +1,39 @@
 @use "../../../styles/colors.module";
+@use "src/styles/media";
 
 .buttonContent {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 4px;
+}
+
+.langPickerWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.mobileLangButton {
+  padding: 0 20px;
+  height: 60px;
+  width: 100%;
+  border: 1px solid colors.$border-primary;
+  font-size: 16px;
+  line-height: 26px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-radius: 8px;
+
+  &:hover:not(.active) {
+    border: 1px solid colors.$palette-green;
+  }
+
+  &.active {
+    background: colors.$transparent-primary;
+    border: 1px solid colors.$palette-green;
+  }
 }
 
 .pickedNetworkName {
@@ -41,6 +70,10 @@
   width: 400px;
   transition: opacity var(--transition-speed) ease;
   z-index: 1000;
+
+  @include media.for-large-mobile {
+    width: 256px;
+  }
 }
 
 .content {

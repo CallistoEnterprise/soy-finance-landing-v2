@@ -11,6 +11,10 @@
   }
 }
 
+.navLinkWrapper {
+  position: relative;
+}
+
 .navLink {
   color: colors.$text-primary;
   padding: 0 7px;
@@ -22,6 +26,11 @@
   &:hover {
     cursor: pointer;
     color: colors.$palette-green;
+
+    + .walletMenuDropdown {
+      display: block;
+      opacity: 1;
+    }
   }
 }
 
@@ -63,17 +72,23 @@
   position: absolute;
   background: colors.$background-primary;
   border: 1px solid colors.$border-primary;
-  //box-shadow: 0px 4px 0px colors.$border-primary;
   border-radius: 8px;
   padding: 4px 0;
-  transition: opacity var(--transition-speed) ease;
+  //transition: opacity var(--transition-speed) ease;
   z-index: 1000;
+  top: calc(100% + 27px);
+  transition-duration: 0.3s;
+
+  &:hover {
+    display: block;
+    opacity: 1;
+  }
 
   &:after {
     content: "";
     width: 100%;
     position: absolute;
-    height: 27px;
+    height: 30px;
     bottom: 100%;
   }
 }

@@ -33,11 +33,23 @@
   }
 
   &.social {
+    color: colors.$text-secondary;
+    border: 1px solid colors.$palette-green;
+
+    &:hover {
+      color: colors.$palette-green;
+    }
+  }
+
+  &.social-footer {
     color: #fff;
     border: 1px solid #fff;
 
     &:hover {
-      background-color: #300802;
+      //background-color: #300802;
+      border-color: colors.$palette-green;
+      color: colors.$palette-green;
+
     }
   }
 

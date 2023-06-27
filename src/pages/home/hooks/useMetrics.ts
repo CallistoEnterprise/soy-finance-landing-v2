@@ -205,7 +205,7 @@ export const useStakingAPR = () => {
 }
 
 interface FarmWithAPR {
-  name: string
+  name: string | null
   lp: string
   apr: number
   liquidityUSD: number
@@ -214,7 +214,7 @@ interface FarmWithAPR {
 }
 
 const defaultFarm: FarmWithAPR = {
-  name: 'undefined',
+  name: null,
   lp: '',
   apr: 0,
   liquidityUSD: 0,

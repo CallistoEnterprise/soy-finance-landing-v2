@@ -7,6 +7,7 @@ import Svg from "../../atoms/Svg";
 import Divider from "../../atoms/Divider";
 import Portal from "../../atoms/Portal";
 import {IconName} from "../../atoms/Svg/svgIconsMap";
+import {useSnackbar} from "../../../shared/providers/SnackbarProvider";
 
 const menuItems: {
   title: string,
@@ -81,50 +82,20 @@ const menuItems: {
 ];
 
 function NavItemWithMenu({title, menu}) {
-  const itemRef = useRef<HTMLDivElement | null>(null);
+  const {showMessage} = useSnackbar();
 
-  const [isOpened, setIsOpened] = useState(false);
-
-  const [itemPositions, setItemPositions] = useState({
-    top: 0,
-    left: 0
-  });
-
-  useEffect(
-    () => {
-      if (itemRef.current) {
-        const currentRef = itemRef.current as HTMLDivElement;
-
-        setItemPositions({
-          top: currentRef.getBoundingClientRect().y + currentRef.getBoundingClientRect().height + 27,
-          left: currentRef.getBoundingClientRect().left
-        });
-      }
-    },
-    [itemRef]
-  );
-
-  return <div
-    onMouseEnter={() => setIsOpened(true)}
-    onMouseLeave={() => setIsOpened(false)}
-    ref={itemRef}
-  >
+  return <div className={styles.navLinkWrapper}>
       <div className={styles.navLink} role="button" >
         {title}
         <Svg iconName="arrow-bottom" />
       </div>
-    <Portal root="dropdown-root" isOpen={isOpened} onClose={() => {
-      setIsOpened(false)
-    }} isTransitioningClassName={styles.in} className={clsx(
-      styles.dialogContainer,
-      isOpened && styles.open
-    )}>
-      <div style={{left: itemPositions.left, top: itemPositions.top}}
-           className={styles.walletMenuDropdown}>
+      <div className={styles.walletMenuDropdown}>
         <nav>
           <ul className={styles.walletMenuList}>
             {menu.map((it) => {
-              return <li className={styles.walletMenuItem} key={it.title}>
+              return <li role="button" onClick={() => {
+                showMessage("Coming soon...", "info");
+              }} className={styles.walletMenuItem} key={it.title}>
                 <Svg iconName={it.icon} />
                 {it.title}
               </li>
@@ -132,21 +103,24 @@ function NavItemWithMenu({title, menu}) {
           </ul>
         </nav>
       </div>
-    </Portal>
   </div>
 }
 
 export default function HeaderNav() {
   const { t } = useTranslation("common");
 
+  const {showMessage} = useSnackbar();
+
   return <nav>
     <ul className={styles.menu}>
       {menuItems.map(link => <li key={link.title}>{
         link.menu ? <NavItemWithMenu menu={link.menu} title={t(link.title)} /> :
-          <a className={styles.navLink} href={link.url}>{t(link.title)}</a>
-      }
+          <a onClick={(e) => {
+            e.preventDefault();
 
-        </li>)}
+            showMessage("Coming soon...", "info");
+          }} className={styles.navLink} href={link.url}>{t(link.title)}</a>
+      }</li>)}
     </ul>
   </nav>;
 }
