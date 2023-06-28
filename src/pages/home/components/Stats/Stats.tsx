@@ -50,9 +50,7 @@ function PriceBox({imgUri, name, price, change}) {
           minimumFractionDigits: 5
         })}</span>
         <span className={clsx(styles.tokenChange, change >= 0 ? styles.green : styles.red)}>
-          {change.toLocaleString('en-US', {
-            minimumFractionDigits: 2
-          })}%
+          {change.toFixed(2)}%
           {change !== 0 && <Svg size={20} iconName="arrow-right"/>}
         </span>
       </div>

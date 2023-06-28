@@ -1,7 +1,6 @@
 import React from "react";
 import styles from "./Farming.module.scss";
 import Svg from "../../../../components/atoms/Svg";
-import { useFarmingAPR } from "../../hooks/useMetrics";
 import {getLogo} from "../../../../shared/getLogo";
 import Skeleton from "../../../../components/atoms/Skeleton";
 import {Fade} from "react-awesome-reveal";
@@ -9,8 +8,6 @@ import {useFarms} from "../../../farms/hooks/useFarms";
 import {FixedNumber} from "ethers";
 
 export default function Farming() {
-  const data = useFarmingAPR();
-
   const farms = useFarms();
 
   return <div className={styles.farming}>

@@ -26,7 +26,7 @@ export const socialLinks: Array<{
   },
   {
     icon: "coingecko",
-    link: "https://www.facebook.com/Soy.Finance"
+    link: "https://www.geckoterminal.com/callisto/soy-finance-callisto/pools"
   },
   {
     icon: "coinmarketcup",
