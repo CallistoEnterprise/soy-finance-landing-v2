@@ -72,6 +72,7 @@
     border: 10px solid colors.$palette-green;
     border-radius: 20px;
     z-index: 1;
+    pointer-events: none;
   }
 
   @media screen and (max-width: 1650px) {
