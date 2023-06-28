@@ -1,29 +1,17 @@
-import React, {useEffect, useMemo, useState} from "react";
-import Layout from "../../shared/layouts/Layout";
-import Farms from "./components/Farms";
-import {IIFE} from "../../shared/web3/functions/iife";
-import styles from "./FarmsPage.module.scss";
-import farmsToFetch from "./constants/farms/farmsInCLO";
-import {FarmConfig} from "./types";
-import {BigNumber} from "@ethersproject/bignumber";
-import {useMultiCallContract} from "../../shared/web3/hooks/useMultiCallContract";
-import {useErc20Fragment, useLocalFarmFragment, useMasterChefFragment} from "../../shared/config/fragments";
-import {ERC_20_INTERFACE, LOCAL_FARM_INTERFACE, MASTER_CHEF_INTERFACE} from "../../shared/config/interfaces";
+import {useEffect, useState} from "react";
+import {IIFE} from "../../../shared/web3/functions/iife";
+import farmsToFetch from "../constants/farms/farmsInCLO";
 import {FixedNumber, FunctionFragment} from "ethers";
-import {fetchFarmsPrices} from "./utils";
-import clsx from "clsx";
-import Switch from "../../components/atoms/Switch";
-import BannerSlider from "./components/BannerSlider";
-import PageCardHeading from "../../components/molecules/PageCardHeading";
-import {getUnixTime, subDays, subWeeks, startOfMinute} from 'date-fns'
-import {gql, request} from 'graphql-request';
-import {multiQuery, PoolData} from "../../shared/fetcher";
-import {useWeb3} from "../../processes/web3/hooks/useWeb3";
-import Select from "../../components/molecules/Select";
-import {useEvent} from "effector-react";
-import {closeUnStakeLPTokensDialog, openStakeLPTokensDialog, openUnStakeLPTokensDialog} from "./models";
-import StakeLPTokensModal from "./components/StakeLPTokensModal";
-import UnStakeLPTokensModal from "./components/UnstakeLPTokensModal";
+import {ERC_20_INTERFACE, LOCAL_FARM_INTERFACE, MASTER_CHEF_INTERFACE} from "../../../shared/config/interfaces";
+import {fetchFarmsPrices} from "../utils";
+import {useMultiCallContract, useMultiCallJSONRpcContract} from "../../../shared/web3/hooks/useMultiCallContract";
+import {useErc20Fragment, useLocalFarmFragment, useMasterChefFragment} from "../../../shared/config/fragments";
+import {Farm} from "../FarmsPage";
+import {gql, request} from "graphql-request";
+import {FarmConfig} from "../types";
+import {BigNumber} from "@ethersproject/bignumber";
+import {getUnixTime, startOfMinute, subDays, subWeeks} from "date-fns";
+import {multiQuery, PoolData} from "../../../shared/fetcher";
 
 
 export type SerializedBigNumber = string
@@ -580,10 +568,8 @@ const getFarmApr = (
   return {cakeRewardsApr: soyRewardsAprAsNumber, lpRewardsApr}
 }
 
-export default function FarmsPage() {
-  // return <div />
-  // const {isActive} = useWeb3();
-  const multiCallContract = useMultiCallContract();
+export function useFarms() {
+  const multiCallContract = useMultiCallJSONRpcContract();
 
   const totalSupplyFragment = useErc20Fragment("totalSupply");
   const balanceOfFragment = useErc20Fragment("balanceOf");
@@ -593,11 +579,7 @@ export default function FarmsPage() {
 
   const getAllocFragment = useLocalFarmFragment("getAllocationX1000");
 
-  const [data, setData] = useState<Farm[] | null>(null);
-
-  const [showActive, setShowActive] = useState(true);
-
-  const [sorting, setSorting] = useState<"hot" | "liquidity" | "apr" | "multiplier">("hot");
+  const [data, setData] = useState<Farm[] | null[]>([null, null, null]);
 
   const addresses = useTopPoolAddresses();
 
@@ -693,6 +675,10 @@ export default function FarmsPage() {
         results.push(allReturnData.map((call, i) => ERC_20_INTERFACE.decodeFunctionResult(calls[i].fragment, call)));
         allocResults.push(allocReturnData.map((call, i) => LOCAL_FARM_INTERFACE.decodeFunctionResult(getAllocFragment, call)));
       }
+      //
+      // console.log(results);
+      // console.log(multiplierResults);
+      // console.log(allocResults);
 
       const serializedResults = results.map((result, i) => {
         const [
@@ -767,113 +753,9 @@ export default function FarmsPage() {
 
       console.log(farmsWithAPR);
 
-      setData(farmsWithAPR);
+      setData(farmsWithAPR.sort(compareApr));
     });
-
   }, [balanceOfFragment, decimalsFragment, getAllocFragment, localFarmsFragment, multiCallContract, poolsDatas.data, totalSupplyFragment]);
 
-  const sortedFarms = useMemo(() => {
-    if (!data) {
-      return null;
-    }
-
-    switch (sorting) {
-      case "apr":
-        const asorted = [...data];
-        asorted.sort(compareApr);
-
-        return asorted;
-
-      case "multiplier":
-        const msorted = [...data];
-        msorted.sort(compareMultiplier);
-
-        return msorted;
-
-      case "liquidity":
-        const lsorted = [...data];
-        lsorted.sort(compareLiquidity);
-
-        return lsorted;
-      default:
-        return data;
-    }
-
-  }, [data, sorting]);
-
-  const activeFarms = useMemo(() => {
-    if (!sortedFarms) {
-      return null;
-    }
-    console.log("Fired change farms");
-
-    return sortedFarms.filter((farm) => Boolean(farm.multiplier));
-  }, [sortedFarms]);
-
-  const inactiveFarms = useMemo(() => {
-    if (!sortedFarms) {
-      return null;
-    }
-
-    return sortedFarms.filter((farm) => !Boolean(farm.multiplier));
-  }, [sortedFarms]);
-
-  return <Layout>
-    <div className="mb-20"/>
-    <div className="container">
-      <div className="paper">
-        <PageCardHeading title="Soy Finance essentials"/>
-        <div className="mb-20"/>
-        <BannerSlider/>
-      </div>
-    </div>
-    <div className="mb-20"/>
-    <div className="container">
-      <div className="paper">
-        <h4 className="mb-20 font-700 font-24">All farms</h4>
-        <div className={styles.farmsHeader}>
-          <div className={styles.leftPart}>
-            <div className={styles.staked}>
-              Staked only
-              <Switch checked={true} setChecked={null}/>
-            </div>
-
-            <div className={styles.tabs}>
-              <button className={clsx(styles.tab, showActive && styles.activeTab)}
-                      onClick={() => setShowActive(true)}>Active
-              </button>
-              <button className={clsx(styles.tab, !showActive && styles.activeTab)}
-                      onClick={() => setShowActive(false)}>Inactive
-              </button>
-            </div>
-          </div>
-          <div>
-            <Select options={[
-              {
-                id: "hot",
-                value: "Hot"
-              },
-              {
-                id: "liquidity",
-                value: "Liquidity"
-              },
-              {
-                id: "multiplier",
-                value: "Multiplier"
-              },
-              {
-                id: "apr",
-                value: "APR"
-              }
-            ]} selectedOption={sorting} setSelectedOption={(id) => setSorting(id)}/>
-          </div>
-        </div>
-        {activeFarms && showActive && <Farms farms={activeFarms}/>}
-        {inactiveFarms && !showActive && <Farms farms={inactiveFarms}/>}
-      </div>
-    </div>
-    <StakeLPTokensModal />
-    <UnStakeLPTokensModal />
-    <div className="mb-20"/>
-  </Layout>;
+  return data;
 }

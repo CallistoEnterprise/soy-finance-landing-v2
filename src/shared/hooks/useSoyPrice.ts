@@ -1,17 +1,20 @@
 import {useEffect, useState} from "react";
+import {useFetchTokens} from "../fetcher-home";
 
 export function useSoyPrice() {
-  const [price, setPrice] = useState(null);
+  const tokensData = useFetchTokens();
+  const [price, setPrice] = useState<number | null>(0);
 
   useEffect(() => {
-    (async () => {
-      const res = await fetch("https://api-data.absolutewallet.com/api/v1/currencies/detail-token?id=5948&fiat=USD");
+    if(tokensData && tokensData.data) {
+      const soy = tokensData.data["0x9fae2529863bd691b4a7171bdfcf33c7ebb10a65"];
+      console.log(soy);
 
-      const data = await res.json();
-
-      setPrice(data.price.price);
-    })();
-  }, [])
+      if(soy) {
+        setPrice(soy.priceUSD);
+      }
+    }
+  }, [tokensData]);
 
   return {
     loading: !price,

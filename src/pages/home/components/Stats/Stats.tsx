@@ -47,7 +47,7 @@ function PriceBox({imgUri, name, price, change}) {
       <p className={styles.tokenName}>{name}</p>
       <div className={styles.tokenPrices}>
         <span>${price.toLocaleString('en-US', {
-          minimumFractionDigits: 2
+          minimumFractionDigits: 5
         })}</span>
         <span className={clsx(styles.tokenChange, change >= 0 ? styles.green : styles.red)}>
           {change.toLocaleString('en-US', {

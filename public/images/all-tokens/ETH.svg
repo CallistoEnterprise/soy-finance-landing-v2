@@ -1,15 +1,21 @@
-<svg width="12" height="18" viewBox="0 0 12 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g id="Ethereum_logo_2014 (2) 1" clip-path="url(#clip0_153_5267)">
-<path id="Vector" d="M5.99955 0L5.87891 0.410072V12.3094L5.99955 12.4298L11.5231 9.16489L5.99955 0Z" fill="#343434"/>
-<path id="Vector_2" d="M5.99815 0L0.474609 9.16489L5.99815 12.4299V6.6543V0Z" fill="#8C8C8C"/>
-<path id="Vector_3" d="M5.99767 13.4757L5.92969 13.5586V17.7974L5.99767 17.996L11.5245 10.2124L5.99767 13.4757Z" fill="#3C3C3B"/>
-<path id="Vector_4" d="M5.99815 17.996V13.4757L0.474609 10.2124L5.99815 17.996Z" fill="#8C8C8C"/>
-<path id="Vector_5" d="M5.99805 12.4298L11.5215 9.16489L5.99805 6.6543V12.4298Z" fill="#141414"/>
-<path id="Vector_6" d="M0.474609 9.16489L5.99806 12.4298V6.6543L0.474609 9.16489Z" fill="#393939"/>
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_153_5264)">
+<circle cx="12" cy="12" r="12" fill="#F9F9F9"/>
+<g clip-path="url(#clip1_153_5264)">
+<path d="M11.9996 3L11.8789 3.41007V15.3094L11.9996 15.4298L17.5231 12.1649L11.9996 3Z" fill="#343434"/>
+<path d="M11.9981 3L6.47461 12.1649L11.9981 15.4299V9.6543V3Z" fill="#8C8C8C"/>
+<path d="M11.9977 16.4757L11.9297 16.5586V20.7974L11.9977 20.996L17.5245 13.2124L11.9977 16.4757Z" fill="#3C3C3B"/>
+<path d="M11.9981 20.996V16.4757L6.47461 13.2124L11.9981 20.996Z" fill="#8C8C8C"/>
+<path d="M11.998 15.4298L17.5215 12.1649L11.998 9.6543V15.4298Z" fill="#141414"/>
+<path d="M6.47461 12.1649L11.9981 15.4298V9.6543L6.47461 12.1649Z" fill="#393939"/>
+</g>
 </g>
 <defs>
-<clipPath id="clip0_153_5267">
-<rect width="11.0504" height="18" fill="white" transform="translate(0.474609)"/>
+<clipPath id="clip0_153_5264">
+<rect width="24" height="24" rx="12" fill="white"/>
+</clipPath>
+<clipPath id="clip1_153_5264">
+<rect width="11.0504" height="18" fill="white" transform="translate(6.47461 3)"/>
 </clipPath>
 </defs>
 </svg>
