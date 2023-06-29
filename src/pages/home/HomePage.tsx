@@ -17,15 +17,10 @@ export default function Home() {
       <title>Soy.Finance - Callisto Network</title>
       <meta name="description" content="SOY Finance brings safety to DeFi! With our pioneering insurance fund, SOY Finance guarantees a safe and affordable environment for trading, farming, and staking."/>
 
-      <meta property="og:type" content="website" />
       <meta property="og:title" content="Soy.Finance | Where DeFi Meets Safety" />
-      <meta property="twitter:title" content="Soy.Finance | Where DeFi Meets Safety" />
-      <meta property="og:site_name" content="Soy.Finance" />
-      <meta property="og:image" content="/og.jpg" />
-      <meta name="twitter:image" content="/og.jpg" />
+      <meta property="og:url" content="https://soy-finance-landing.vercel.app" />
       <meta property="og:description" content="SOY Finance brings safety to DeFi! With our pioneering insurance fund, SOY Finance guarantees a safe and affordable environment for trading, farming, and staking." />
-      <meta name="twitter:description" content="SOY Finance brings safety to DeFi! With our pioneering insurance fund, SOY Finance guarantees a safe and affordable environment for trading, farming, and staking." />
-      <meta name="twitter:site" content="@1inchNetwork" />
+      <meta property="og:image" content="https://soy-finance-landing.vercel.app/og.jpg" />
       {/*<meta property="og:title" content="Soy.Finance" />*/}
       {/*<meta property="og:description" content="video.movie" />*/}
       {/*<meta property="og:url" content="https://www.imdb.com/title/tt0117500/" />*/}
