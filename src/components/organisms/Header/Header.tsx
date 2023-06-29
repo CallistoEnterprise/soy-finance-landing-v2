@@ -8,7 +8,7 @@ import IconButton from "../../atoms/IconButton";
 import Svg from "../../atoms/Svg/Svg";
 import Button from "../../atoms/Button";
 import {socialLinks} from "../../../shared/constants/external-links/socials";
-import SwitchLanguage from "../../molecules/SwitchLanguage";
+// import SwitchLanguage from "../../molecules/SwitchLanguage";
 
 export default function Header() {
   const { mode } = useColorMode();
@@ -24,7 +24,7 @@ export default function Header() {
         <HeaderNav />
       </div>
       <div className={styles.rightContent}>
-        <SwitchLanguage />
+        {/*<SwitchLanguage />*/}
         <a className={styles.launchButton} href="https://app.soy.finance/swap" target="_blank">
           <Button>Launch Soy Finance</Button>
         </a>
