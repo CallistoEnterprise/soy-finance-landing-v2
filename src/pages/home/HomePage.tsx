@@ -12,42 +12,25 @@ import JoinSlothiverse from "./components/JoinSlothiverse";
 import Head from "next/head";
 
 export default function Home() {
-  return <>
-    <Head>
-      <title>Soy.Finance - Callisto Network</title>
-      <meta name="description" content="SOY Finance brings safety to DeFi! With our pioneering insurance fund, SOY Finance guarantees a safe and affordable environment for trading, farming, and staking."/>
+  return <Layout>
+      <main>
+        <div className="container">
+          <div className={styles.mainContent}>
+            <Banner/>
+            <Stats/>
+            <DeFi/>
+            <BridgeBlock/>
 
-      <meta property="og:title" content="Soy.Finance | Where DeFi Meets Safety" />
-      <meta property="og:url" content="https://soy-finance-landing.vercel.app" />
-      <meta property="og:description" content="SOY Finance brings safety to DeFi! With our pioneering insurance fund, SOY Finance guarantees a safe and affordable environment for trading, farming, and staking." />
-      <meta property="og:image" content="https://soy-finance-landing.vercel.app/og.jpg" />
-      {/*<meta property="og:title" content="Soy.Finance" />*/}
-      {/*<meta property="og:description" content="video.movie" />*/}
-      {/*<meta property="og:url" content="https://www.imdb.com/title/tt0117500/" />*/}
-      {/*<meta property="og:image" content="https://ia.media-imdb.com/images/rock.jpg" />*/}
-      {/*<meta property="twitter:title" content="Soy.Finance" />*/}
-      {/*<meta property="twitter:description" content="video.movie" />*/}
-      {/*<meta property="twitter:image" content="https://ia.media-imdb.com/images/rock.jpg" />*/}
-    </Head>
-    <Layout>
-    <main>
-      <div className="container">
-        <div className={styles.mainContent}>
-          <Banner />
-          <Stats />
-          <DeFi />
-          <BridgeBlock />
+            <div className={styles.stakingFarming}>
+              <Staking/>
+              <Farming/>
+            </div>
 
-          <div className={styles.stakingFarming}>
-            <Staking />
-            <Farming />
+            <Burning/>
+            <EmpowerGrowth/>
+            <JoinSlothiverse/>
           </div>
-
-          <Burning />
-          <EmpowerGrowth />
-          <JoinSlothiverse />
         </div>
-      </div>
-    </main>
-  </Layout></>;
+      </main>
+    </Layout>
 }
