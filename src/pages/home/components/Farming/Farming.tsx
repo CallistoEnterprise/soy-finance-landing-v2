@@ -4,7 +4,7 @@ import Svg from "../../../../components/atoms/Svg";
 import {getLogo} from "../../../../shared/getLogo";
 import Skeleton from "../../../../components/atoms/Skeleton";
 import {Fade} from "react-awesome-reveal";
-import {useFarms} from "../../../farms/hooks/useFarms";
+import {useFarms} from "../../hooks/useFarms";
 import {FixedNumber} from "ethers";
 import Image from "next/image";
 

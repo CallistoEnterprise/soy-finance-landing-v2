@@ -1,12 +1,11 @@
 import {useEffect, useState} from "react";
 import {IIFE} from "../../../shared/web3/functions/iife";
-import farmsToFetch from "../constants/farms/farmsInCLO";
+import farmsToFetch from "../constants/farmsInCLO";
 import {FixedNumber, FunctionFragment} from "ethers";
 import {ERC_20_INTERFACE, LOCAL_FARM_INTERFACE, MASTER_CHEF_INTERFACE} from "../../../shared/config/interfaces";
 import {fetchFarmsPrices} from "../utils";
-import {useMultiCallContract, useMultiCallJSONRpcContract} from "../../../shared/web3/hooks/useMultiCallContract";
+import {useMultiCallJSONRpcContract} from "../../../shared/web3/hooks/useMultiCallContract";
 import {useErc20Fragment, useLocalFarmFragment, useMasterChefFragment} from "../../../shared/config/fragments";
-import {Farm} from "../FarmsPage";
 import {gql, request} from "graphql-request";
 import {FarmConfig} from "../types";
 import {BigNumber} from "@ethersproject/bignumber";

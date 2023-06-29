@@ -1,7 +1,6 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import Web3 from 'web3'
-import Utils from 'web3-utils'
 import { request, gql } from 'graphql-request'
 import Farmlist from '../constants/farmlist.json'
 

@@ -1,6 +1,6 @@
-import {Farm} from "../FarmsPage";
 import {ChainId} from "@callisto-enterprise/soy-sdk";
 import {FixedNumber} from "ethers";
+import {Farm} from "../hooks/useFarms";
 
 const FixedZero = FixedNumber.fromValue(0);
 

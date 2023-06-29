@@ -1,6 +1,4 @@
 import "../../processes/web3/models/init";
-import "../../pages/liquidity/models/init";
-import "../../pages/farms/models/init";
 import "../web3/models/init";
 
 import {$balances, $favoriteTokens, $isWalletDialogOpened, $recentTransactions} from "./stores";
