@@ -4,9 +4,9 @@ import {Fade} from "react-awesome-reveal";
 
 export default function DeFi() {
   return <div className={styles.defi}>
-    <img className={styles.mainImage} src="/images/homepage/palm.png"/>
+    <img loading="lazy" className={styles.mainImage} src="/images/homepage/palm.webp" />
     <Fade className={styles.sloth} direction="left">
-      <img style={{width: "100%"}} src="/images/homepage/sloth.png"/>
+      <img loading="lazy" style={{width: "100%"}} src="/images/homepage/sloth.webp" alt="sloth"/>
     </Fade>
     <Fade direction="up" triggerOnce>
       <div className={styles.content}>

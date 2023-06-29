@@ -1,7 +1,7 @@
 @use "src/styles/media";
 
 .farming {
-  background-image: url("/images/homepage/staking.png");
+  background-image: url("/images/homepage/staking.webp");
 
   background-size: cover;
   background-position: center;
@@ -89,8 +89,6 @@
   img,
   .imagePlaceholderWrapper {
     text-align: center;
-    width: 50px;
-    height: 50px;
 
     @include media.for-desktop {
       width: 40px;

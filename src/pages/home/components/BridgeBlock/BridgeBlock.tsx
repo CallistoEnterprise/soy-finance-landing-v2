@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./BridgeBlock.module.scss";
 import {Rotate, Zoom, Fade} from "react-awesome-reveal";
+import Image from "next/image";
 
 const stars1 = <svg width="295" height="236" viewBox="0 0 295 236" fill="none" xmlns="http://www.w3.org/2000/svg">
   <path className={styles.starItem} d="M13.5 0L16.0783 9.0343L25.1913 6.75L18.6565 13.5L25.1913 20.25L16.0783 17.9657L13.5 27L10.9217 17.9657L1.80866 20.25L8.34346 13.5L1.80866 6.75L10.9217 9.0343L13.5 0Z" fill="currentColor"/>
@@ -27,17 +28,16 @@ export default function BridgeBlock() {
     </div>
     <div className={styles.centerImage}>
       <Rotate duration={2000} triggerOnce={false}>
-        <img className={styles.inner} src="/images/homepage/bridge-middle-inner.png" alt=""/>
+        <div className={styles.inner} />
       </Rotate>
       <Rotate delay={300} duration={1700} triggerOnce={false}>
-        <img className={styles.outer} src="/images/homepage/bridge-middle-outer.png" alt=""/>
+        <div className={styles.outer} />
       </Rotate>
-      <img className={styles.eth} src="/images/homepage/bridge-eth.png" alt=""/>
-      <img className={styles.etc} src="/images/homepage/bridge-etc.png" alt=""/>
-      <img className={styles.clo} src="/images/homepage/bridge-clo.png" alt=""/>
-      <img className={styles.cube} src="/images/homepage/bridge-cube.png" alt=""/>
+        {["eth", "etc", "clo", "cube"].map((icon) => {
+          return <div className={styles[icon]} key={icon} />
+        })}
       <Zoom>
-        <img className={styles.soyLogo} src="/images/homepage/soy-logo.png" alt=""/>
+        <Image width={89} height={159} className={styles.soyLogo} src="/images/homepage/soy-logo.webp" alt="Soy logotype"/>
       </Zoom>
       <Fade triggerOnce={false} duration={2000}>
          <span className={styles.etcText}>
@@ -50,32 +50,23 @@ export default function BridgeBlock() {
       <div className={styles.flask}/>
     </div>
     <div className={styles.mobileCenter}>
-      <Fade direction="left" className={styles.mobileArmLt}>
-        <img className={styles.arm} src="/images/homepage/arm-lt-mob.png" alt=""/>
-        <img className={styles.bscMob} src="/images/homepage/bridge-bsc.png" alt=""/>
-
+      <Fade triggerOnce direction="left" className={styles.mobileArmLt}>
         <span className={styles.bscTextMob}>
-          Binance <br/> Smart Chain</span>
+          Binance <br/> Smart Chain
+        </span>
       </Fade>
-      <Fade direction="right" className={styles.mobileArmR}>
-        <img className={styles.arm} src="/images/homepage/arm-rb-mob.png" alt=""/>
-        <img className={styles.ethMob} src="/images/homepage/bridge-eth.png" alt=""/>
-        <Fade triggerOnce={false} duration={2000}>
+      <Fade triggerOnce direction="right" className={styles.mobileArmRt}>
         <span className={styles.ethTextMob}>
-          Ethereum</span>
-        </Fade>
+          Ethereum
+        </span>
       </Fade>
-      <Fade direction="left" className={styles.mobileArmLb}>
-        <img className={styles.arm} src="/images/homepage/arm-lb-mob.png" alt=""/>
-        <img className={styles.etcMob} src="/images/homepage/bridge-etc.png" alt=""/>
-        <Fade triggerOnce={false} duration={2000}>
+      <Fade triggerOnce direction="left" className={styles.mobileArmLb}>
         <span className={styles.etcTextMob}>
-          Ethereum <br/> Classic</span>
-        </Fade>
+          Ethereum <br/> Classic
+        </span>
       </Fade>
-      <Fade direction="right" className={styles.mobileArmRb}>
-        <img className={styles.arm} src="/images/homepage/arm-rb-mob-2.png" alt=""/>
-        <img className={styles.cloMob} src="/images/homepage/bridge-clo.png"/>
+      <Fade triggerOnce direction="right" className={styles.mobileArmRb}>
+        <div />
       </Fade>
     </div>
     <div className={styles.bottomContent}>
@@ -88,35 +79,29 @@ export default function BridgeBlock() {
     </div>
 
     <Fade triggerOnce direction="left" className={styles.armLb}>
-        <img className={styles.arm} src="/images/homepage/arm-lb.png" alt=""/>
-        <img className={styles.dot} src="/images/homepage/bridge-dot.png" alt=""/>
+      <div />
     </Fade>
 
 
       <Fade triggerOnce direction="left" className={styles.armLt}>
-        <img className={styles.arm} src="/images/homepage/arm-lt.png" alt=""/>
-        <img className={styles.bsc} src="/images/homepage/bridge-bsc.png" alt=""/>
-        <Fade triggerOnce={false} duration={2000}>
         <span className={styles.bscText}>
           Binance <br/> Smart Chain
         </span>
-        </Fade>
       </Fade>
 
 
       <Fade triggerOnce direction="right" className={styles.armRb}>
-        <img className={styles.arm} src="/images/homepage/arm-rb.png" alt=""/>
-        <img className={styles.blogo} src="/images/homepage/bridge-logo.png" alt=""/>
+        <div />
       </Fade>
       <Fade triggerOnce direction="right" className={styles.armRt}>
-        <img className={styles.arm} src="/images/homepage/arm-rt.png" alt=""/>
+        <div />
       </Fade>
 
     <div className={styles.stars1}>{stars1}</div>
     <div className={styles.stars2}>{stars2}</div>
     <div className={styles.rockets}>
-      <img className={styles.rocket1} src="/images/homepage/rocket.png" alt=""/>
-      <img className={styles.rocket2} src="/images/homepage/man-on-rocket.png" alt=""/>
+      <img className={styles.rocket1} src="/images/homepage/rocket.png" alt="Rocket"/>
+      <img className={styles.rocket2} src="/images/homepage/man-on-rocket.png" alt="Man on rocket"/>
     </div>
   </div>;
 }

@@ -6,9 +6,9 @@ import {Fade} from "react-awesome-reveal";
 export default function JoinSlothiverse() {
   return <div className={styles.join}>
     <div className={styles.image}>
-      <img className={styles.bg} src="/images/homepage/join.png" alt=""/>
+      <img loading="lazy" className={styles.bg} src="/images/homepage/join.webp" alt="Pyramid illustration"/>
       <Fade direction="right" style={{width: "30%", height: "84%", top: 0, position: "absolute", left: 10}}>
-        <img className={styles.movable} src="/images/homepage/column.png" alt=""/>
+        <img loading="lazy" className={styles.movable} src="/images/homepage/column.webp" alt="Movable column"/>
       </Fade>
     </div>
     <div className={styles.textBlock}>

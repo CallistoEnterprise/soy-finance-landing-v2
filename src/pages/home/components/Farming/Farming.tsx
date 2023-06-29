@@ -6,6 +6,7 @@ import Skeleton from "../../../../components/atoms/Skeleton";
 import {Fade} from "react-awesome-reveal";
 import {useFarms} from "../../../farms/hooks/useFarms";
 import {FixedNumber} from "ethers";
+import Image from "next/image";
 
 export default function Farming() {
   const farms = useFarms();
@@ -45,9 +46,9 @@ export default function Farming() {
 
             return <div key={index} className={styles.card}>
               <div className={styles.imageContainer}>
-                <img src={getLogo({address: farm.token.address?.["820"]?.toLowerCase()})} />
+                <Image width={50} height={50} src={getLogo({address: farm.token.address?.["820"]?.toLowerCase()})} alt={farm.token.symbol} />
                 <Svg iconName="add-token" />
-                <img src={getLogo({address: farm.quoteToken.address?.["820"]?.toLowerCase()})} />
+                <Image width={50} height={50} src={getLogo({address: farm.quoteToken.address?.["820"]?.toLowerCase()})} alt={farm.token.symbol} />
               </div>
 
               <p className={styles.name}>{farm.token.symbol} - {farm.quoteToken.symbol}</p>
