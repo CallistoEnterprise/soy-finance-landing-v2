@@ -11,6 +11,7 @@ export default function JoinSlothiverse() {
         fill
         src="/images/homepage/join.webp"
         alt="Pyramid illustration"
+        sizes="50vw"
       />
       <Fade direction="right" style={{width: "47%", height: "84%", top: 0, position: "absolute", left: 10}}>
         <Image fill className={styles.movable} src="/images/homepage/column.webp" alt="Movable column"/>
