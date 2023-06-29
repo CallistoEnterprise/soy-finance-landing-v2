@@ -24,7 +24,7 @@ export default function Banner() {
       </div>
     </div>
     <div className={styles.videoWrapper}>
-      <video loop muted playsInline autoPlay src="/videos/BG_VP9.webm" />
+      <video poster="/videos/poster.webp" loop muted playsInline autoPlay src="/videos/BG_VP9.webm" />
     </div>
   </div>;
 }
