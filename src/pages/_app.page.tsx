@@ -27,11 +27,20 @@ export default function App({Component, pageProps}: AppProps) {
       <meta name="description"
             content="SOY Finance brings safety to DeFi! With our pioneering insurance fund, SOY Finance guarantees a safe and affordable environment for trading, farming, and staking."/>
 
+      <meta property="og:type" content="website" />
+
+      <meta property="og:site_name" content="Soy.Finance" />
       <meta property="og:title" content="Soy.Finance | Where DeFi Meets Safety"/>
       <meta property="og:url" content="https://soy-finance-landing.vercel.app"/>
       <meta property="og:description"
             content="SOY Finance brings safety to DeFi! With our pioneering insurance fund, SOY Finance guarantees a safe and affordable environment for trading, farming, and staking."/>
       <meta property="og:image" content="https://soy-finance-landing.vercel.app/og.jpg"/>
+
+      <meta name="twitter:site" content="Soy.Finance" />
+      <meta property="twitter:title" content="Soy.Finance | Where DeFi Meets Safety" />
+      <meta name="twitter:image" content="https://soy-finance-landing.vercel.app/og.jpg" />
+      <meta name="twitter:image:alt" content="Soy.Finance | Where DeFi Meets Safety" />
+      <meta name="twitter:card" content="summary_large_image" />
     </Head>
     <ThemeProvider>
       <SnackbarProvider>
