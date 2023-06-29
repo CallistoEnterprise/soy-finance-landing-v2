@@ -1,11 +1,11 @@
 import React, {useMemo} from "react";
 import styles from "./Stats.module.scss";
-import {useMetrics} from "../../hooks/useMetrics";
 import Svg from "../../../../components/atoms/Svg";
 import {TokenData, useFetchTokens} from "../../../../shared/fetcher-home";
 import clsx from "clsx";
 import {getLogo} from "../../../../shared/getLogo";
 import {Fade} from "react-awesome-reveal";
+import {useMetrics} from "../../hooks/useMetricsNew";
 
 function shortenNumber(value: number) {
   if (value === undefined) return "0"
