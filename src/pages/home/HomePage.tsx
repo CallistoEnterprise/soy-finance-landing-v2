@@ -11,8 +11,7 @@ import Layout from "../../shared/layouts/Layout";
 import JoinSlothiverse from "./components/JoinSlothiverse";
 
 export default function Home() {
-  return <Layout>
-      <main>
+  return  <main>
         <div className="container">
           <div className={styles.mainContent}>
             {/*<Banner/>*/}
@@ -31,5 +30,5 @@ export default function Home() {
           </div>
         </div>
       </main>
-    </Layout>
+    // </Layout>
 }
