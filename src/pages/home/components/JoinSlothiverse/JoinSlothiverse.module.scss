@@ -37,13 +37,15 @@
   display: flex;
   align-items: center;
   width: 100%;
+  height: auto;
   position: relative;
   overflow: hidden;
   border-bottom-left-radius: 50%;
-
-  .bg {
-    width: 100%;
-  }
+  padding-top: 100%; /* 1:1 Aspect Ratio */
+  //
+  //.bg {
+  //  object-fit: contain;
+  //}
 
   @include media.for-laptop {
     margin-top: 34px;

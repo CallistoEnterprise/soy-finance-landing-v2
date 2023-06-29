@@ -26,13 +26,13 @@ export default function Footer() {
           <p className={`font-16 mb-20 ${styles.white}`}>Where DeFi Meets Safety</p>
           <div className={styles.footerSettings}>
             <div className={styles.soyPrice}>
-              <img src="/images/all-tokens/SOY-TRANSPARENT.svg" />
+              <img src="/images/all-tokens/SOY-TRANSPARENT.svg" alt="" />
               <span className={styles.priceText} >1 SOY = ${formatBalanceToSix(price)}</span>
             </div>
           </div>
           <div className={styles.socials}>
             {socialLinks.map((item, index) => {
-              return <a key={index} target="_blank" href={item.link}>
+              return <a aria-label={item.icon} key={index} target="_blank" href={item.link}>
                 <IconButton variant="social-footer" key={index}>
                   <Svg sprite="social" iconName={item.icon} />
                 </IconButton>
