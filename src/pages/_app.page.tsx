@@ -25,7 +25,7 @@ export default function App({Component, pageProps}: AppProps) {
     <Head>
       <title>Soy.Finance - Callisto Network</title>
       <meta name="description"
-            content="Bring safety to DeFi with Soy Finance! Our pioneering insurance fund guarantees a safe and affordable environment for trading, farming, and staking."/>
+            content="Experience the future of DeFi with SOY Finance. Our unique insurance fund provides a safe and affordableenvironment for trading, farming, and staking."/>
 
       <meta property="og:type" content="website" />
 
@@ -33,12 +33,12 @@ export default function App({Component, pageProps}: AppProps) {
       <meta property="og:title" content="Soy.Finance | Where DeFi Meets Safety"/>
       <meta property="og:url" content="https://soy-finance-landing.vercel.app"/>
       <meta property="og:description"
-            content="Bring safety to DeFi with Soy Finance! Our pioneering insurance fund guarantees a safe and affordable environment for trading, farming, and staking."/>
+            content="Experience the future of DeFi with SOY Finance. Our unique insurance fund provides a safe and affordableenvironment for trading, farming, and staking."/>
       <meta property="og:image" content="https://soy-finance-landing.vercel.app/og.jpg"/>
 
       <meta name="twitter:site" content="Soy.Finance" />
       <meta property="twitter:title" content="Soy.Finance | Where DeFi Meets Safety" />
-      <meta property="twitter:description" content="Bring safety to DeFi with Soy Finance! Our pioneering insurance fund guarantees a safe and affordable environment for trading, farming, and staking." />
+      <meta property="twitter:description" content="Experience the future of DeFi with SOY Finance. Our unique insurance fund provides a safe and affordableenvironment for trading, farming, and staking." />
       <meta name="twitter:image" content="https://soy-finance-landing.vercel.app/og.jpg" />
       <meta name="twitter:image:alt" content="Soy.Finance | Where DeFi Meets Safety" />
       <meta name="twitter:card" content="summary_large_image" />
