@@ -37,5 +37,5 @@ export function useMultiCallJSONRpcContract() {
       MULTICALL_ABI,
       provider
     );
-  }, []);
+  }, [provider]);
 }
