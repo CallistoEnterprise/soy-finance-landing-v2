@@ -9,16 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@callisto-enterprise/soy-sdk": "^0.1.7",
     "@emotion/react": "^11.11.1",
-    "@walletconnect/ethereum-provider": "^2.6.2",
-    "@walletconnect/modal": "^2.5.2",
-    "@web3modal/standalone": "^2.2.2",
     "axios": "^1.4.0",
     "clsx": "^1.2.1",
     "date-fns": "^2.30.0",
-    "effector": "^22.7.0",
-    "effector-react": "^22.5.1",
     "ethers": "^6.2.3",
     "graphql": "^16.6.0",
     "graphql-request": "^6.0.0",
@@ -27,14 +21,10 @@
     "react": "18.2.0",
     "react-awesome-reveal": "^4.2.4",
     "react-dom": "18.2.0",
-    "simplebar-react": "^3.2.4",
     "typescript": "5.0.2",
     "use-debounce": "^9.0.4"
   },
   "devDependencies": {
-    "@ethersproject/contracts": "^5.7.0",
-    "@ethersproject/providers": "^5.7.2",
-    "@ethersproject/solidity": "^5.7.0",
     "@next/bundle-analyzer": "^13.4.7",
     "@types/aos": "^3.0.4",
     "@types/node": "18.15.11",

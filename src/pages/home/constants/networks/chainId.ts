@@ -1,0 +1,11 @@
+export enum ChainId {
+  ETHEREUM = 1,
+  RINKEBY = 4,
+  KOVAN = 42,
+  BSC = 56,
+  BSCTESTNET = 97,
+  ETCCLASSICMAINNET = 61,
+  BTTMAINNET = 199,
+  MAINNET = 820,
+  CLOTESTNET = 20729
+}

@@ -1,16 +1,17 @@
-import {useEffect, useState} from "react";
-import {IIFE} from "../../../shared/web3/functions/iife";
-import farmsToFetch from "../constants/farmsInCLO";
-import {FixedNumber, FunctionFragment} from "ethers";
+import {useEffect, useMemo, useState} from "react";
+import {IIFE} from "../../../shared/utils/iife";
+import farmsToFetch from "../constants/farms/farmsInCLO";
+import {Contract, FixedNumber, FunctionFragment, JsonRpcProvider} from "ethers";
 import {ERC_20_INTERFACE, LOCAL_FARM_INTERFACE, MASTER_CHEF_INTERFACE} from "../../../shared/config/interfaces";
 import {fetchFarmsPrices} from "../utils";
-import {useMultiCallJSONRpcContract} from "../../../shared/web3/hooks/useMultiCallContract";
 import {useErc20Fragment, useLocalFarmFragment, useMasterChefFragment} from "../../../shared/config/fragments";
 import {gql, request} from "graphql-request";
-import {FarmConfig} from "../types";
+import {FarmConfig, PoolData} from "../types";
 import {BigNumber} from "@ethersproject/bignumber";
 import {getUnixTime, startOfMinute, subDays, subWeeks} from "date-fns";
-import {multiQuery, PoolData} from "../../../shared/fetcher";
+import {multiQuery} from "./fetcher-home";
+import {ChainId} from "../constants/networks/chainId";
+import {MULTICALL_ABI} from "../../../shared/abis";
 
 
 export type SerializedBigNumber = string
@@ -565,6 +566,30 @@ const getFarmApr = (
   }
   const lpRewardsApr = swapApr //lpAprs[farmAddress?.toLocaleLowerCase()] ?? 0
   return {cakeRewardsApr: soyRewardsAprAsNumber, lpRewardsApr}
+}
+
+const MULTICALL_NETWORKS: { [chainId in ChainId]: string } = {
+  [ChainId.MAINNET]: "0x8bA3D23241c7044bE703afAF2A728FdBc16f5F6f",
+  [ChainId.CLOTESTNET]: "0xDd2742Ba146A57F1F6e8F47235024ba1bd0cf568",
+  [ChainId.ETHEREUM]: "",
+  [ChainId.RINKEBY]: "",
+  [ChainId.KOVAN]: "",
+  [ChainId.BSC]: "0xfF6FD90A470Aaa0c1B8A54681746b07AcdFedc9B",
+  [ChainId.BSCTESTNET]: "",
+  [ChainId.ETCCLASSICMAINNET]: "0x98194aaA67638498547Df929DF4926C7D0DCD135",
+  [ChainId.BTTMAINNET]: "0x8dFbdEEeF41eefd92A663a34331db867CA6581AE"
+};
+
+export function useMultiCallJSONRpcContract() {
+  const provider = new JsonRpcProvider("https://rpc.callisto.network/")
+
+  return useMemo(() => {
+    return new Contract(
+      MULTICALL_NETWORKS["820"],
+      MULTICALL_ABI,
+      provider
+    );
+  }, []);
 }
 
 export function useFarms() {

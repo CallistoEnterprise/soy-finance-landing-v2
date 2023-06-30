@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./Burning.module.scss";
-import { useGetBurnedSoy } from "../../hooks/useMetrics";
+import {useGetBurnedSoy} from "../../hooks/useGetBurnedSoy";
 
 export default function Burning() {
   const burned = useGetBurnedSoy();

@@ -1,5 +1,4 @@
 import styles from "./HomePage.module.scss"
-import Layout from "../../shared/layouts/Layout";
 import Banner from "./components/Banner";
 import Stats from "./components/Stats";
 import DeFi from "./components/DeFi";
@@ -9,6 +8,7 @@ import Burning from "./components/Burning";
 import BridgeBlock from "./components/BridgeBlock";
 import EmpowerGrowth from "./components/EmpowerGrowth";
 import JoinSlothiverse from "./components/JoinSlothiverse";
+import Layout from "../../components/layout/Layout";
 
 export default function Home() {
   return <Layout>

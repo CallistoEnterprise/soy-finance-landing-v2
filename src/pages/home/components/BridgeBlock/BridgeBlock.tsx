@@ -100,8 +100,8 @@ export default function BridgeBlock() {
     <div className={styles.stars1}>{stars1}</div>
     <div className={styles.stars2}>{stars2}</div>
     <div className={styles.rockets}>
-      <img className={styles.rocket1} src="/images/homepage/rocket.png" alt="Rocket"/>
-      <img className={styles.rocket2} src="/images/homepage/man-on-rocket.png" alt="Man on rocket"/>
+      <img className={styles.rocket1} src="/images/homepage/rocket.webp" alt="Rocket"/>
+      <img className={styles.rocket2} src="/images/homepage/man-on-rocket.webp" alt="Man on rocket"/>
     </div>
   </div>;
 }

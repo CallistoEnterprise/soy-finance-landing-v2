@@ -1,7 +1,7 @@
 import React, {useMemo} from "react";
 import styles from "./Farming.module.scss";
 import Svg from "../../../../components/atoms/Svg";
-import {getLogo} from "../../../../shared/getLogo";
+import {getLogo} from "../../../../shared/utils/getLogo";
 import Skeleton from "../../../../components/atoms/Skeleton";
 import {Fade} from "react-awesome-reveal";
 import {useFarms} from "../../hooks/useFarms";

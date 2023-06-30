@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import {useFetchTokens} from "../fetcher-home";
+import {useFetchTokens} from "../../pages/home/hooks/fetcher-home";
 
 export function useSoyPrice() {
   const tokensData = useFetchTokens();

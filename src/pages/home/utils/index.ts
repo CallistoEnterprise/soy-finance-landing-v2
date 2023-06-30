@@ -1,6 +1,6 @@
-import {ChainId} from "@callisto-enterprise/soy-sdk";
 import {FixedNumber} from "ethers";
 import {Farm} from "../hooks/useFarms";
+import {ChainId} from "../constants/networks/chainId";
 
 const FixedZero = FixedNumber.fromValue(0);
 
@@ -130,6 +130,7 @@ const refFarms = {
   [ChainId.BTTMAINNET]: 9,
   [ChainId.ETCCLASSICMAINNET]: 1,
 };
+
 export const fetchFarmsPrices = (farms) => {
   const chainId = 820;
   const nativeBusdtFarm = farms.find((farm: Farm) => farm.pid === farmsPids[chainId])

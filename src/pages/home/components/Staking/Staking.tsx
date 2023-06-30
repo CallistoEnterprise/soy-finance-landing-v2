@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Staking.module.scss";
-import {useStakingAPR} from "../../hooks/useMetrics";
 import {Fade} from "react-awesome-reveal";
+import {useStakingAPR} from "../../hooks/useStakingApr";
 
 const getShortenNumber = (value: BigInt): number => {
   return Number(value) / 100;

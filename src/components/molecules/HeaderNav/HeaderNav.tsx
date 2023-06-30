@@ -1,11 +1,7 @@
-import React, {useEffect, useRef, useState} from "react";
+import React from "react";
 import styles from "./HeaderNav.module.scss";
 import useTranslation from "next-translate/useTranslation";
-import clsx from "clsx";
-import DropdownItem from "../DropdownItem";
 import Svg from "../../atoms/Svg";
-import Divider from "../../atoms/Divider";
-import Portal from "../../atoms/Portal";
 import {IconName} from "../../atoms/Svg/svgIconsMap";
 import {useSnackbar} from "../../../shared/providers/SnackbarProvider";
 
