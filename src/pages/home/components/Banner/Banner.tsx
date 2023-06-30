@@ -12,14 +12,16 @@ export default function Banner() {
 
         <p className={styles.subheading}>Where <span className={styles.green}>DeFi</span> Meets <span className={styles.green}>Safety</span></p>
         <div className={styles.buttonBlock}>
-          <button className={styles.button}>
+          <a target="_blank" href="https://app.soy.finance/">
+            <button className={styles.button}>
             <span>
               Launch Soy Finance
             </span>
-            <span className={styles.icon}>
+              <span className={styles.icon}>
               <Svg iconName="arrow-right" />
             </span>
-          </button>
+            </button>
+          </a>
         </div>
       </div>
     </div>
