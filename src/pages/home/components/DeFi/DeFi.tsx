@@ -1,8 +1,16 @@
-import React from "react";
+import React, {useState, useTransition} from "react";
 import styles from "./DeFi.module.scss";
 import {Fade} from "react-awesome-reveal";
+import Player from "../../../../components/molecules/Player";
 
 export default function DeFi() {
+  const [, startTransition] = useTransition();
+
+  // These two states handle the button press, and
+  // the loading of the YouTube iframe.
+  const [showVideo, setShowVideo] = useState(false);
+  const [hasLoaded, setHasLoaded] = useState(false);
+
   return <div className={styles.defi}>
     <img className={styles.mainImage} src="/images/homepage/palm.webp" />
     <Fade className={styles.sloth} direction="left">
@@ -22,15 +30,35 @@ export default function DeFi() {
             This ensures our community of sloth enthusiasts a reliable and safe platform.
           </p>
         </div>
-        <div className={styles.video}>
-          <iframe
-            className={styles.frame}
-            src="https://www.youtube.com/embed/vbtED4Z_82I?rel=0&modestbranding=1&showinfo=0"
-            title="YouTube video player"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowFullScreen
-          />
+        <div className={styles.videoRatio}>
+          {(!showVideo || !hasLoaded) && (
+            <button
+              className={styles.thumbnailButton}
+              onClick={() => {
+                startTransition(() => {
+                  setShowVideo(true);
+                });
+              }}
+            >
+              <div className={styles.videoInner}>
+                <img
+                  alt="Jungle-Tested Crypto Security: Soy Finance - Thumbnain"
+                  src="/videos/sddefault.jpeg"
+                  className={styles.thumbnailImage}
+                  loading="lazy"
+                />
+                <img
+                  alt="Play Video"
+                  src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_play_button_icon_%282013%E2%80%932017%29.svg"
+                  loading="lazy"
+                  className={styles.playIcon}
+                />
+              </div>
+            </button>
+          )}
+          {showVideo && (
+            <Player videoId="vbtED4Z_82I" setHasLoaded={setHasLoaded} />
+          )}
         </div>
       </div>
     </Fade>
