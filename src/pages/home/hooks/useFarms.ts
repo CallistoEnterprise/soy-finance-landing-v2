@@ -7,7 +7,6 @@ import {fetchFarmsPrices} from "../utils";
 import {useErc20Fragment, useLocalFarmFragment, useMasterChefFragment} from "../../../shared/config/fragments";
 import {gql, request} from "graphql-request";
 import {FarmConfig, PoolData} from "../types";
-import {BigNumber} from "@ethersproject/bignumber";
 import {getUnixTime, startOfMinute, subDays, subWeeks} from "date-fns";
 import {multiQuery} from "./fetcher-home";
 import {ChainId} from "../constants/networks/chainId";
@@ -26,7 +25,7 @@ export interface Farm extends FarmConfig {
   tokenPriceVsQuote: FixedNumber
   liquidity: FixedNumber
   poolWeight?: SerializedBigNumber
-  realmulti?: BigNumber
+  realmulti?: any
   lpRewardsApr: number,
   apr: FixedNumber,
   userData?: {
@@ -620,9 +619,9 @@ export function useFarms() {
       return;
     }
 
-    const results = [];
-    const multiplierResults = [];
-    const allocResults = [];
+    const resultsCalls = [];
+    const multiplierResultsCalls = [];
+    const allocResultsCalls = [];
 
     IIFE(async () => {
 
@@ -678,33 +677,52 @@ export function useFarms() {
           params: [],
         }
 
-        const mCallData = [[multiplierCall.address, MASTER_CHEF_INTERFACE.encodeFunctionData(multiplierCall.fragment, multiplierCall.params)]];
+        multiplierResultsCalls.push([multiplierCall.address, MASTER_CHEF_INTERFACE.encodeFunctionData(multiplierCall.fragment, multiplierCall.params)]);
 
-        const aCallData = [[allocPointCall.address, LOCAL_FARM_INTERFACE.encodeFunctionData(allocPointCall.fragment)]];
+        allocResultsCalls.push([allocPointCall.address, LOCAL_FARM_INTERFACE.encodeFunctionData(allocPointCall.fragment)]);
 
-        const callData = calls.map((call) => [
+        resultsCalls.push(...calls.map((call) => [
           call.address?.toLowerCase(),
           ERC_20_INTERFACE.encodeFunctionData(call.fragment, call.params ? call.params : undefined)
-        ]);
-
-
-        const {returnData: allReturnData} = await multiCallContract["aggregate"](callData);
-
-        const {returnData: multiplierReturnData} = await multiCallContract["aggregate"](mCallData);
-
-        const {returnData: allocReturnData} = await multiCallContract["aggregate"](aCallData);
-
-        multiplierResults.push(multiplierReturnData.map((call, i) => MASTER_CHEF_INTERFACE.decodeFunctionResult(localFarmsFragment, call)));
-
-        results.push(allReturnData.map((call, i) => ERC_20_INTERFACE.decodeFunctionResult(calls[i].fragment, call)));
-        allocResults.push(allocReturnData.map((call, i) => LOCAL_FARM_INTERFACE.decodeFunctionResult(getAllocFragment, call)));
+        ]));
       }
+
+      const {returnData: allReturnData} = await multiCallContract["aggregate"](resultsCalls);
+
+      const {returnData: multiplierReturnData} = await multiCallContract["aggregate"](multiplierResultsCalls);
+
+      const {returnData: allocReturnData} = await multiCallContract["aggregate"](allocResultsCalls);
+
+      const multiplierResult = multiplierReturnData.map(call => MASTER_CHEF_INTERFACE.decodeFunctionResult(localFarmsFragment, call));
+      const allocResult = allocReturnData.map(call => MASTER_CHEF_INTERFACE.decodeFunctionResult(getAllocFragment, call));
+
+      const split = [];
+
+      for (let i = 0; i < allReturnData.length; i += 6) {
+        const subarray = allReturnData.slice(i, i + 6);
+        split.push(subarray);
+      }
+
+      const decodedArray = split.map((callArray) => {
+        return callArray.map((call, i) => {
+          if (i === 4 || i === 5) {
+            return ERC_20_INTERFACE.decodeFunctionResult(decimalsFragment, call);
+          }
+
+          if (i === 3) {
+            return ERC_20_INTERFACE.decodeFunctionResult(totalSupplyFragment, call);
+          }
+
+          return ERC_20_INTERFACE.decodeFunctionResult(balanceOfFragment, call);
+        });
+      });
+
       //
       // console.log(results);
       // console.log(multiplierResults);
       // console.log(allocResults);
 
-      const serializedResults = results.map((result, i) => {
+      const serializedResults = decodedArray.map((result, i) => {
         const [
           {0: tokenBalanceLP},
           {0: quoteTokenBalanceLP},
@@ -714,8 +732,8 @@ export function useFarms() {
           {0: quoteTokenDecimals}
         ] = result;
 
-        const {0: multiplierData} = multiplierResults[i];
-        const {0: allocData} = allocResults[i];
+        const multiplierData = multiplierResult[i];
+        const allocData = allocResult[i];
 
         const tokenBalanceLPFixed = FixedNumber.fromValue(tokenBalanceLP, 18);
         const quoteTokenBalanceLPFixed = FixedNumber.fromValue(quoteTokenBalanceLP, 18);
@@ -774,8 +792,6 @@ export function useFarms() {
 
         return {...farm, apr: cakeRewardsApr, lpRewardsApr}
       });
-
-      console.log(farmsWithAPR);
 
       setData(farmsWithAPR.sort(compareApr));
     });

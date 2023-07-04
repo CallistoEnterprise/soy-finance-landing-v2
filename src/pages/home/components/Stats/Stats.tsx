@@ -91,10 +91,10 @@ export default function Stats() {
   return <div className={styles.stats}>
     <div className={styles.statBoxContainer}>
       <Fade direction="up" triggerOnce>
-        <StatBox title="Total trades" value={`${shortenNumber(metricsData.result.Trades)}+`}/>
-        <StatBox title="Total volume" value={`${shortenNumber(metricsData.result.Volume_24h)}+`}/>
+        <StatBox title="Total trades" value={`${shortenNumber(metricsData.result.trades)}+`}/>
+        <StatBox title="Total volume" value={`${shortenNumber(metricsData.result.volume_24h)}+`}/>
         <StatBox title="Supported networks" value="5"/>
-        <StatBox title="Insurance funds" value={`${shortenNumber(metricsData.result.Soy_IDO)}+`}/>
+        <StatBox title="Insurance funds" value={`${shortenNumber(metricsData.result.soy_IDO)}+`}/>
       </Fade>
     </div>
 

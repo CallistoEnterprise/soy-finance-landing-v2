@@ -1,20 +1,20 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 
-const METRICS = 'https://api.callisto.network/soy_metrics'
+const METRICS = 'https://api.callisto.network/soy/metrics'
 
 export const useMetrics = () => {
   const [metricsData, setMetricsData] = useState({
-    runtime: 0.031,
-    block_number: 8392129,
+    block_number_swap: 12669555,
+    block_number: 12669560,
     result: {
-      Users: 0,
-      Trades: 0,
-      Volume: 0,
-      Volume_24h: 0,
-      Soy_Circulating_Supply: 0,
-      Soy_IDO: 0,
-      Total_Value_Locked_In_Farms: 0,
+      users: 0,
+      trades: 0,
+      volume: 0,
+      volume_24h: 0,
+      soy_circulating_supply: 0,
+      soy_IDO: 0,
+      total_valueLocked_in_farms: 0,
     },
   })
 
