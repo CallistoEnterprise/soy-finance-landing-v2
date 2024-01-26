@@ -4,13 +4,15 @@ import useTranslation from "next-translate/useTranslation";
 import Svg from "../../atoms/Svg";
 import {IconName} from "../../atoms/Svg/svgIconsMap";
 import {useSnackbar} from "../../../shared/providers/SnackbarProvider";
+import { useRouter } from "next/router";
 
 const menuItems: {
   title: string,
   url: string,
   menu?: Array<{
     title: string,
-    icon: IconName
+    icon: IconName,
+    href?: string
   }>
 }[] = [
   {
@@ -19,15 +21,13 @@ const menuItems: {
     menu: [
       {
         title: "Swap",
-        icon: "swap"
-      },
-      {
-        title: "Orders",
-        icon: "orders"
+        icon: "swap",
+        href: "https://app.soy.finance/swap"
       },
       {
         title: "Liquidity",
-        icon: "liquidity"
+        icon: "liquidity",
+        href: "https://app.soy.finance/liquidity"
       },
       {
         title: "Dex stats",
@@ -37,12 +37,17 @@ const menuItems: {
   },
   {
     title: "staking",
-    url: "#"
+    url: "https://app2.soy.finance/pools"
   },
   {
     title: "farming",
-    url: "#",
+    url: "https://app.soy.finance/farms",
     menu: [
+      {
+        title: "Farms",
+        icon: "farm",
+        href: "https://app.soy.finance/farms"
+      },
       {
         title: "Boost token",
         icon: "boost"
@@ -68,17 +73,14 @@ const menuItems: {
     ]
   },
   {
-    title: "future",
-    url: "#"
-  },
-  {
     title: "bridge",
-    url: "#"
+    url: "https://bridge.soy.finance/"
   }
 ];
 
 function NavItemWithMenu({title, menu}) {
   const {showMessage} = useSnackbar();
+  const router = useRouter();
 
   return <div className={styles.navLinkWrapper}>
       <div className={styles.navLink} role="button" >
@@ -89,6 +91,13 @@ function NavItemWithMenu({title, menu}) {
         <nav>
           <ul className={styles.walletMenuList}>
             {menu.map((it) => {
+              if(it.href) {
+                return <a target="_blank" href={it.href} className={styles.walletMenuItem} key={it.title}>
+                  <Svg iconName={it.icon} />
+                  {it.title}
+                </a>
+              }
+
               return <li role="button" onClick={() => {
                 showMessage("Coming soon...", "info");
               }} className={styles.walletMenuItem} key={it.title}>

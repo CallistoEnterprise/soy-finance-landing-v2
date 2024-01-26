@@ -1,4 +1,4 @@
-import {IconName} from "../../../components/atoms/Svg/svgIconsMap";
+import {IconName} from "../../../../components/atoms/Svg/svgIconsMap";
 
 export const socialLinks: Array<{
   icon: IconName,
@@ -6,7 +6,7 @@ export const socialLinks: Array<{
 }> = [
   {
     icon: "twitter",
-    link: "https://twitter.com/Soy_Finance"
+    link: "https://twitter.com/SoyFinance"
   },
   {
     icon: "telegram",

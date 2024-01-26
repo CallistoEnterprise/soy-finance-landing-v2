@@ -6,9 +6,11 @@
   overflow: hidden;
   position: relative;
 
-  ////max-height: calc(100vh - 120px);
-  //max-height: 980px;
-  height: 980px;
+  height: calc(100vh - 120px);
+  //height: 100%;
+  max-height: 980px;
+  min-height: 800px;
+  //height: 910px;
 
   .text {
     position: absolute;

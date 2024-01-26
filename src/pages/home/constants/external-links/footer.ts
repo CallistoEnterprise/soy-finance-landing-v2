@@ -6,7 +6,7 @@ type FooterLink = {
 export const supportLinks: FooterLink[] = [
   {
     label: "FAQ",
-    url: null
+    url: ""
   },
   {
     label: "Telegram",

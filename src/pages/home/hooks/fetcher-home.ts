@@ -506,7 +506,6 @@ const fetchTokenData = async (
         twoWeeksAgo: ${TOKEN_AT_BLOCK(block14d, tokenAddresses)}
       }
     `
-
       const data = await request<any>(INFO_CLIENT, query)
       return {data, error: false}
   } catch (error) {

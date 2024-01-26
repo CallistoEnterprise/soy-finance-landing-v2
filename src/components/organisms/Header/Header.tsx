@@ -32,15 +32,11 @@ export default function Header() {
               <div>
                 <h3 className={styles.blockTitle}>Exchange</h3>
                 <div className={styles.links}>
-                  <a className={styles.link} href="#">
+                  <a target="_blank" className={styles.link} href="https://app.soy.finance/swap">
                     <Svg iconName="swap" />
                     Swap
                   </a>
-                  <a className={styles.link} href="#">
-                    <Svg iconName="orders" />
-                    Orders
-                  </a>
-                  <a className={styles.link} href="#">
+                  <a target="_blank" className={styles.link} href="https://app.soy.finance/liquidity">
                     <Svg iconName="liquidity" />
                     Liquidity
                   </a>
@@ -53,6 +49,10 @@ export default function Header() {
               <div>
                 <h3 className={styles.blockTitle}>Farming</h3>
                 <div className={styles.links}>
+                  <a target="_blank"  className={styles.link} href="https://app.soy.finance/farms">
+                    <Svg iconName="farm" />
+                    Farms
+                  </a>
                   <a className={styles.link} href="#">
                     <Svg iconName="boost" />
                     Boost token
@@ -83,11 +83,7 @@ export default function Header() {
                     <Svg iconName="staked" />
                     Staking
                   </a>
-                  <a className={styles.link} href="#">
-                    <Svg iconName="futures" />
-                    Futures
-                  </a>
-                  <a className={styles.link} href="#">
+                  <a target="_blank"  className={styles.link} href="https://bridge.soy.finance/">
                     <Svg iconName="bridge" />
                     Bridge
                   </a>
