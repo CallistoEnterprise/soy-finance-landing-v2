@@ -23,7 +23,7 @@ export default function BridgeBlock() {
   return <div className={styles.bridge}>
     <div className={styles.topText}>
       <h1 className={styles.heading}>SOY Bridge <br/> Uniting Blockchains for Safe Trading</h1>
-      <p className={styles.subheading}>SOY Bridge brings the safety of SOY Finance to the most popular blockchains,
+      <p className={styles.subheading}>SOY Bridge brings the safety of Sloth Finance to the most popular blockchains,
         enabling seamless cross-chain DeFi interactions and secure trading for the whole crypto community.</p>
     </div>
     <div className={styles.centerImage}>

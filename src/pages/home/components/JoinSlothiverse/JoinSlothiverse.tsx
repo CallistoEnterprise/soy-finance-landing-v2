@@ -24,7 +24,7 @@ export default function JoinSlothiverse() {
       </h2>
 
       <p className={styles.paragraph}>
-        Soy Finance takes DeFi to the next level with the latest technologies and a seamless experience at 99% less cost
+        Sloth Finance takes DeFi to the next level with the latest technologies and a seamless experience at 99% less cost
         than competitors.
 
         <br/>

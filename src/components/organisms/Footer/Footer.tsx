@@ -20,7 +20,7 @@ export default function Footer() {
         <div className={styles.leftSide}>
           <div className={styles.footerLogo}>
             <Image placeholder="blur" blurDataURL="/Logo-Dark.svg" width={132} height={46} src="/Logo-Dark.svg"
-                   alt="Soy finance"/>
+                   alt="Sloth finance"/>
           </div>
 
           <p className={`font-16 mb-20 ${styles.white}`}>Where DeFi Meets Safety</p>

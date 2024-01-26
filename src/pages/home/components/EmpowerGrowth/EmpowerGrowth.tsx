@@ -14,7 +14,7 @@ export default function EmpowerGrowth() {
         and rewards holders with up to 20% of the platform&apos;s transaction fees.
         <br/>
         <br/>
-        Join the Sloth family and have a say in SOY Finance&apos;s governance, shaping the platform&apos;s future together!
+        Join the Sloth family and have a say in Sloth Finance&apos;s governance, shaping the platform&apos;s future together!
       </p>
     </div>
     <div className={styles.image}>

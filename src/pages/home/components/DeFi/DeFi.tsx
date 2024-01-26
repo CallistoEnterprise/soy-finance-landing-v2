@@ -26,7 +26,7 @@ export default function DeFi() {
           </h2>
           <p className={styles.paragraph}>
             By combining a list of audited tokens, decentralized insurance, and the most advanced token standards,
-            SOY Finance embraces the industry&apos;s best practices and technologies.
+            Sloth Finance embraces the industry&apos;s best practices and technologies.
             This ensures our community of sloth enthusiasts a reliable and safe platform.
           </p>
         </div>
@@ -42,7 +42,7 @@ export default function DeFi() {
             >
               <div className={styles.videoInner}>
                 <img
-                  alt="Jungle-Tested Crypto Security: Soy Finance - Thumbnain"
+                  alt="Jungle-Tested Crypto Security: Sloth Finance - Thumbnain"
                   src="/videos/sddefault.jpeg"
                   className={styles.thumbnailImage}
                   loading="lazy"
