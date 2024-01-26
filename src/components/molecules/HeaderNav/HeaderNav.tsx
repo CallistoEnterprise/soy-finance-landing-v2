@@ -36,10 +36,6 @@ const menuItems: {
     ]
   },
   {
-    title: "staking",
-    url: "https://app2.soy.finance/pools"
-  },
-  {
     title: "farming",
     url: "https://app.soy.finance/farms",
     menu: [
@@ -120,10 +116,12 @@ export default function HeaderNav() {
     <ul className={styles.menu}>
       {menuItems.map(link => <li key={link.title}>{
         link.menu ? <NavItemWithMenu menu={link.menu} title={t(link.title)} /> :
-          <a onClick={(e) => {
-            e.preventDefault();
+          <a target="_blank" onClick={(e) => {
+            if(!link.url) {
+              e.preventDefault();
 
-            showMessage("Coming soon...", "info");
+              showMessage("Coming soon...", "info");
+            }
           }} className={styles.navLink} href={link.url}>{t(link.title)}</a>
       }</li>)}
     </ul>

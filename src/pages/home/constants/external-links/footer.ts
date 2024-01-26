@@ -5,20 +5,12 @@ type FooterLink = {
 
 export const supportLinks: FooterLink[] = [
   {
-    label: "FAQ",
-    url: ""
-  },
-  {
     label: "Telegram",
     url: "https://t.me/Soy_Finance"
   },
   {
     label: "Tokenomics",
     url: "https://docs.soy.finance/soy-products/soy-token/monetary-policy-vision"
-  },
-  {
-    label: "Investor deck",
-    url: "https://clo.click/SOY-Deck"
   }
 ];
 

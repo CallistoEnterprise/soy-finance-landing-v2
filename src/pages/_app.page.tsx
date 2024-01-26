@@ -7,7 +7,7 @@ import Head from "next/head";
 export default function App({Component, pageProps}: AppProps) {
   return <>
     <Head>
-      <title>Soy.Finance - Callisto Network</title>
+      <title>Sloth Finance - Callisto Network</title>
       <meta name="description"
             content="Experience the future of DeFi with SOY Finance. Our unique insurance fund provides a safe and affordableenvironment for trading, farming, and staking."/>
 

@@ -79,10 +79,6 @@ export default function Header() {
               <div>
                 <h3 className={styles.blockTitle}>More</h3>
                 <div className={styles.links}>
-                  <a className={styles.link} href="#">
-                    <Svg iconName="staked" />
-                    Staking
-                  </a>
                   <a target="_blank"  className={styles.link} href="https://bridge.soy.finance/">
                     <Svg iconName="bridge" />
                     Bridge
