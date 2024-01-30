@@ -3,6 +3,7 @@ import type {AppProps} from 'next/app';
 import {montserrat} from "../shared/fonts";
 import {SnackbarProvider} from "../shared/providers/SnackbarProvider";
 import Head from "next/head";
+import { GoogleTagManager } from '@next/third-parties/google'
 
 export default function App({Component, pageProps}: AppProps) {
   return <>
@@ -31,6 +32,7 @@ export default function App({Component, pageProps}: AppProps) {
     <SnackbarProvider>
       <main className={montserrat.className}>
         <Component {...pageProps} />
+        <GoogleTagManager gtmId="G-42DH71LP7L" />
       </main>
     </SnackbarProvider>
   </>

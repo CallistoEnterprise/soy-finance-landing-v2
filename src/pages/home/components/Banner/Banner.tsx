@@ -26,7 +26,7 @@ export default function Banner() {
       </div>
     </div>
     <div className={styles.videoWrapper}>
-      <video poster="/videos/poster.webp" src="/videos/BG_H.265.mp4" loop muted playsInline autoPlay />
+      <video poster="/videos/poster.webp" src="/videos/BG_H-265.mp4" loop muted playsInline autoPlay />
     </div>
   </div>;
 }
