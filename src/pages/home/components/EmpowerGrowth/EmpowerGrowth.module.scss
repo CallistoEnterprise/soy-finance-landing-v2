@@ -118,7 +118,7 @@
     position: absolute;
     top: 50%;
     left: 50%;
-
+    transform: translate(-50%, -50%);
     animation: 1.8s ease-in-out 0s infinite alternate none running up-down;
   }
 

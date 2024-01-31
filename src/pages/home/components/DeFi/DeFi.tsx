@@ -25,8 +25,8 @@ export default function DeFi() {
             made <br/> Safe and Slothful
           </h2>
           <p className={styles.paragraph}>
-            By combining a list of audited tokens, decentralized insurance, and the most advanced token standards,
-            Sloth Finance embraces the industry&apos;s best practices and technologies.
+            Sloth Finance embraces the industry&apos;s best practices and technologies by combining a list of audited tokens, distributed insurance, and the ERC-223 token standard.
+            <br/>
             This ensures our community of sloth enthusiasts a reliable and safe platform.
           </p>
         </div>

@@ -24,13 +24,12 @@ export default function JoinSlothiverse() {
       </h2>
 
       <p className={styles.paragraph}>
-        Sloth Finance takes DeFi to the next level with the latest technologies and a seamless experience at 99% less cost
-        than competitors.
+        Sloth Finance takes DeFi to the next level with the latest technologies at 99% less cost than competitors.
 
         <br/>
         <br/>
 
-        Begin your Sloth journey and start trading, farming, and staking on the most secure DeFi platform!
+        Begin your journey on the most secure DeFi platform!
       </p>
       <div className={styles.buttonBlock}>
         <a target="_blank" href="https://app.soy.finance/swap">
