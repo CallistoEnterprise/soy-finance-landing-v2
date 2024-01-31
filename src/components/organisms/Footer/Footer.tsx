@@ -3,11 +3,11 @@ import styles from "./Footer.module.scss";
 import Image from "next/image";
 import Svg from "../../atoms/Svg/Svg";
 import IconButton from "../../atoms/IconButton";
-import {useSoyPrice} from "../../../shared/hooks/useSoyPrice";
-import {formatBalanceToSix} from "../../../shared/utils/utils";
-import {useSnackbar} from "../../../shared/providers/SnackbarProvider";
-import {socialLinks} from "../../../pages/home/constants/external-links/socials";
-import {footerLinks} from "../../../pages/home/constants/external-links/footer";
+import {useSoyPrice} from "@/shared/hooks/useSoyPrice";
+import {formatBalanceToSix} from "@/shared/utils/utils";
+import {useSnackbar} from "@/shared/providers/SnackbarProvider";
+import {socialLinks} from "@/pages/home/constants/external-links/socials";
+import {footerLinks} from "@/pages/home/constants/external-links/footer";
 
 export default function Footer() {
   const { price } = useSoyPrice();
@@ -61,7 +61,7 @@ export default function Footer() {
         </div>
       </div>
       <div className={styles.bottomFooter}>
-        <span className={styles.copyright}>©2023 All rights reserved</span>
+        <span className={styles.copyright}>©{new Date(Date.now()).getFullYear()} All rights reserved</span>
         <div className={styles.termsPolicy}>
           <a href="#">Terms</a>
           <a href="#">Privacy Policy</a>
