@@ -5,12 +5,12 @@ export default function EmpowerGrowth() {
   return <div className={styles.empower}>
     <div className={styles.textBlock}>
       <h2 className={styles.heading}>
-        <span className={styles.green}>SOY</span>
+        <span className={styles.green}>SLOFI</span>
         {" "}
         Token — Empower your Growth in the Slothiverse
       </h2>
-      <p className={styles.paragraph}>SOY tokenomics is designed to grow your wealth.
-        Built on an innovative monetary policy, SOY features a &apos;Buyback & Burn&apos; mechanism
+      <p className={styles.paragraph}>SLOFI tokenomics is designed to grow your wealth.
+        Built on an innovative monetary policy, SLOTH features a &apos;Buyback & Burn&apos; mechanism
         and rewards holders with up to 20% of the platform&apos;s transaction fees.
         <br/>
         <br/>

@@ -23,11 +23,11 @@ export default function Footer() {
                    alt="Sloth finance"/>
           </div>
 
-          <p className={`font-16 mb-20 ${styles.white}`}>Where DeFi Meets Safety</p>
+          <p className={`font-16 mb-20 ${styles.white}`}>Be Lazy, DeFi is EazZzy</p>
           <div className={styles.footerSettings}>
             <div className={styles.soyPrice}>
-              <img src="/images/all-tokens/SOY-TRANSPARENT.svg" alt="" />
-              <span className={styles.priceText} >1 SOY = ${formatBalanceToSix(price)}</span>
+              <img src="/images/all-tokens/SLOFI_TRANSPARENT.svg" alt="" />
+              <span className={styles.priceText} >1 SLOFI = ${formatBalanceToSix(price)}</span>
             </div>
           </div>
           <div className={styles.socials}>

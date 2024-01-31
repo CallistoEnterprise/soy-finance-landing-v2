@@ -37,7 +37,7 @@ export default function BridgeBlock() {
           return <div className={styles[icon]} key={icon} />
         })}
       <Zoom>
-        <Image width={89} height={159} className={styles.soyLogo} src="/images/homepage/soy-logo.webp" alt="Soy logotype"/>
+        <Image width={120} height={120} className={styles.soyLogo} src="/images/homepage/soy-logo.webp" alt="Soy logotype"/>
       </Zoom>
       <Fade triggerOnce={false} duration={2000}>
          <span className={styles.etcText}>

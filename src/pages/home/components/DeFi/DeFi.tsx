@@ -43,7 +43,7 @@ export default function DeFi() {
               <div className={styles.videoInner}>
                 <img
                   alt="Jungle-Tested Crypto Security: Sloth Finance - Thumbnain"
-                  src="/videos/sddefault.jpeg"
+                  src="/videos/youtube_cover_1280x720.png"
                   className={styles.thumbnailImage}
                   loading="lazy"
                 />

@@ -21,7 +21,7 @@ export default function Header() {
       <div className={styles.rightContent}>
         {/*<SwitchLanguage />*/}
         <a className={styles.launchButton} href="https://app.soy.finance/swap" target="_blank">
-          <Button>Launch Soy Finance</Button>
+          <Button>Launch Sloth Finance</Button>
         </a>
         <div className={styles.burger}>
           <IconButton variant="system" onClick={() => setMenuOpen(true)}>

@@ -71,6 +71,10 @@ const menuItems: {
   {
     title: "bridge",
     url: "https://bridge.soy.finance/"
+  },
+  {
+    title: "migrate",
+    url: "https://app.soy.finance/migrate"
   }
 ];
 
