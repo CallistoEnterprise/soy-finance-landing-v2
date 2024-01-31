@@ -21,7 +21,7 @@ export default function Staking() {
             <div className={styles.imageContainer}>
               <img src={"/images/all-tokens/SLOFI.svg"} alt=""/>
             </div>
-            <p className={styles.name}>SLOTH</p>
+            <p className={styles.name}>SLOFI</p>
             <p className={styles.info}>APR: {getShortenNumber(stakingAPR)}%</p>
           </div>
         </Fade>
@@ -30,7 +30,7 @@ export default function Staking() {
             <div className={styles.imageContainer}>
               <img src={"/images/all-tokens/SLOFI.svg"} alt=""/>
             </div>
-            <p className={styles.name}>SLOTH</p>
+            <p className={styles.name}>SLOFI</p>
             <p className={styles.info}>APR: {getShortenNumber(stakingAPR)}%</p>
           </div>
         </Fade>

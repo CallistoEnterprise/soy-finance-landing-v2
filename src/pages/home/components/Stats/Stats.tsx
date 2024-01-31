@@ -94,7 +94,7 @@ export default function Stats() {
         <StatBox title="Total trades" value={`${shortenNumber(metricsData.result.trades)}+`}/>
         <StatBox title="Total volume" value={`${shortenNumber(metricsData.result.volume_24h)}+`}/>
         <StatBox title="Supported networks" value="5"/>
-        <StatBox title="Insurance funds" value={`${shortenNumber(metricsData.result.soy_IDO)}+`}/>
+        <StatBox title="Insurance fund" value={`${shortenNumber(metricsData.result.soy_IDO)}+`}/>
       </Fade>
     </div>
 

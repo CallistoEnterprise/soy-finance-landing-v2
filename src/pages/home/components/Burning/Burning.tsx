@@ -7,8 +7,8 @@ export default function Burning() {
 
   return <div className={styles.burning}>
     <div className={styles.text}>
-      <p className={styles.heading}>Total SOY Tokens Burned</p>
-      <p className={styles.subheading}>{burned.toLocaleString('en-US')} $SOY</p>
+      <p className={styles.heading}>Total SLOFI Tokens Burned</p>
+      <p className={styles.subheading}>{0} SLOFI</p>
     </div>
   </div>;
 }
